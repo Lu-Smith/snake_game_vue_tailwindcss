@@ -6,10 +6,14 @@ import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <div class="bg-red-200">
-    <Header />
-    <Game />
-    <Footer />
+  <div class="flex flex-col justify-center items-center gap-6 w-full h-full">
+    <div class="bg-green-200 w-full h-full p-6">
+      <Header />
+    </div>
+    <div class="bg-blue-200 w-full h-full p-6">
+      <Game />
+    </div>
   </div>
+  <Footer />
 </template>
 
