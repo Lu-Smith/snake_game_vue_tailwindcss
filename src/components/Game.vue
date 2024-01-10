@@ -27,19 +27,17 @@
     fruitImageLoaded: ref<boolean>(false),
     });
 
+    //apple
     const initialApple = ref([60, 20]);
     const apple = ref(initialApple);
     const fruit = new Image();
     fruit.src = Apple;
 
+    //snake
+    const initialSnake = ref([[4,15], [4,15]]);
+    const snake = ref(initialSnake);
+
     onMounted(() => {
-    const context = gameCanvas.value?.getContext('2d');
-
-    if (context) {
-        // context.fillStyle = 'green';
-        // context.fillRect(10, 10, 50, 50);
-    }
-
     fruit.onload = () => {
         fruitImageLoaded.value = true;
     };
@@ -58,7 +56,12 @@
     const context = gameCanvas.value?.getContext('2d');
 
     if (context && fruitImageLoaded.value) {
-        context.drawImage(fruit, apple.value[0], apple.value[1], 18, 10)
+        //apple
+        context.drawImage(fruit, apple.value[0], apple.value[1], 18, 10);
+        //snake
+        context.arc(30, 20, 5.5, 0, 2 * Math.PI, false);
+        context.fillStyle = "#c1e205";
+        context.fill();
     }
     };
 </script>
