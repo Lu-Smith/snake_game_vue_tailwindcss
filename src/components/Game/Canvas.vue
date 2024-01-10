@@ -7,3 +7,36 @@
       ></canvas>
     </div>
 </template>
+
+<script lang="ts" setup>
+import { ref, onMounted, toRefs } from 'vue';
+
+const { canvasWidth, canvasHeight, gameCanvas, fruitImageLoaded } = toRefs({
+    canvasWidth: ref<string>('100%'),
+    canvasHeight: '500px',
+    gameCanvas: ref<HTMLCanvasElement | null>(null),
+    fruitImageLoaded: ref<boolean>(false),
+});
+
+const emits = defineEmits(['gameCanvas', 'fruitImageLoaded']);
+
+onMounted(() => {
+    fruit.onload = () => {
+        fruitImageLoaded.value = true;
+        emits('fruitImageLoaded', fruitImageLoaded.value);
+    };
+
+    // Handle image load error
+    fruit.onerror = () => {
+        console.error('Error loading the fruit image.');
+    };
+
+    window.addEventListener('resize', () => {
+        canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
+    });
+
+    // Emit gameCanvas after it's ready
+    emits('gameCanvas', gameCanvas.value);
+});
+
+</script>
