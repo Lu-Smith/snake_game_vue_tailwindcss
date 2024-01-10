@@ -1,17 +1,12 @@
 <template>
     <GameControls :mode="mode" @startGame="startGame"/>
-    <div class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
-      <canvas
-        :class="mode ? 'bg-green-200' : 'bg-slate-800'"
-        ref="gameCanvas"
-        :style="{ height: canvasHeight, width: canvasWidth }"
-      ></canvas>
-    </div>
+    <Canvas />
   </template>
   
   <script lang="ts" setup>
     import { ref, onMounted, toRefs } from 'vue';
     import GameControls from '../components/Game/GameControls.vue';
+    import Canvas from '../components/Game/Canvas.vue';
     import Apple from '../assets/smallApple.png';
 
     defineProps(['mode']);

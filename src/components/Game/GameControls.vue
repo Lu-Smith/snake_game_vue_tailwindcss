@@ -6,10 +6,8 @@
 </template>
 
 <script lang="ts" setup>
-
 const { mode } = defineProps(['mode']);
 const emits = defineEmits(['startGame']);
-
 const handleStartGame = () => {
   emits('startGame');
 };
