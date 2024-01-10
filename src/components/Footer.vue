@@ -1,6 +1,8 @@
 <template>
-    <h3 class="fixed bottom-4 right-4 w-ful text-sm mt-2 bg-bgColor 
-    p-2 rounded text-textColor font-semibold">
+    <h3 
+    :class="mode ? 'text-textColor' : 'text-addColor'"
+    class="fixed bottom-4 right-4 w-ful text-sm mt-2 bg-bgColor 
+    p-2 rounded font-semibold">
         Coded by 
         <a 
         href="https://www.lunasmithart.com/"
@@ -18,3 +20,7 @@
         GitHub</a>.
     </h3>
 </template>
+
+<script lang="ts" setup>
+defineProps(['mode']);
+</script>
