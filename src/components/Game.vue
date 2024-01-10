@@ -5,7 +5,6 @@
       :class="mode ? 'text-textColor' : 'text-addColor'">Start</button>
       <button :class="mode ? 'text-textColor' : 'text-addColor'">Restart</button>
     </div>
-    <img src="../assets/smallApple.png" alt="apple">
     <div class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
       <canvas
         :class="mode ? 'bg-green-200' : 'bg-slate-800'"
@@ -17,6 +16,7 @@
   
   <script lang="ts" setup>
     import { ref, onMounted, toRefs } from 'vue';
+    import Apple from '../assets/smallApple.png';
 
     defineProps(['mode']);
 
@@ -27,15 +27,13 @@
     fruitImageLoaded: ref<boolean>(false),
     });
 
-    const initialApple = ref([10, 10]);
+    const initialApple = ref([60, 20]);
     const apple = ref(initialApple);
     const fruit = new Image();
-    fruit.src = '../assets/smallApple.png';
+    fruit.src = Apple;
 
     onMounted(() => {
     const context = gameCanvas.value?.getContext('2d');
-
-    console.log(fruit.src);
 
     if (context) {
         // context.fillStyle = 'green';
@@ -60,7 +58,7 @@
     const context = gameCanvas.value?.getContext('2d');
 
     if (context && fruitImageLoaded.value) {
-        context.drawImage(fruit, apple.value[0], apple.value[1], 2, 2)
+        context.drawImage(fruit, apple.value[0], apple.value[1], 18, 10)
     }
     };
 </script>
