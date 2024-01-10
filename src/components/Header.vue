@@ -1,19 +1,19 @@
 <template>
     <div>
         <div>
-            <div>
-                <span class="material-symbols-outlined">
+            <div class="text-green-600">
+                <span class="material-symbols-outlined text-lightColor">
                 emoji_objects
                 </span>
                 <span class="material-symbols-outlined">
                 toggle_off
                 </span>
             </div>
-            <div>
+            <div class="text-red-600">
                 <span class="material-symbols-outlined">
                 toggle_on
                 </span>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined text-darkColor">
                 nightlight
                 </span>
             </div>

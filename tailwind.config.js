@@ -10,7 +10,9 @@ export default {
         linksColor: '#ff5959', 
         textColor: '#085f63', 
         bgColor: '#feffdf',
-        addColor: '#49beb7'
+        addColor: '#49beb7',
+        lightColor: '#fcff82',
+        darkColor: '#f5f9ee',
       },
     },
   },
