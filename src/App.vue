@@ -5,7 +5,7 @@
       <Header :mode="mode"  />
     </div>
     <div class="bg-blue-200 w-full h-full p-6">
-      <Game />
+      <Game :mode="mode" />
     </div>
   </div>
   <Footer :mode="mode" />
