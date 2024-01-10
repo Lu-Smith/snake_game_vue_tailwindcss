@@ -11,9 +11,11 @@
 <script lang="ts" setup>
 import { ref, onMounted, toRefs } from 'vue';
 
-const props = defineProps(['mode', 'fruit']);
-const { fruit } = toRefs(props);
-console.log(fruit)
+const props = defineProps<{
+  mode: boolean;
+  fruit: HTMLImageElement;
+}>();
+
 
 const { canvasWidth, canvasHeight, gameCanvas, fruitImageLoaded } = toRefs({
     canvasWidth: ref<string>('100%'),
@@ -25,17 +27,15 @@ const { canvasWidth, canvasHeight, gameCanvas, fruitImageLoaded } = toRefs({
 const emits = defineEmits(['gameCanvas', 'fruitImageLoaded']);
 
 onMounted(() => {
-  if (fruit) {
-    fruit.value.onload = () => {
+    props.fruit.onload = () => {
       fruitImageLoaded.value = true;
       emits('fruitImageLoaded', fruitImageLoaded.value);
     };
 
     // Handle image load error
-    fruit.value.onerror = () => {
+    props.fruit.onerror = () => {
       console.error('Error loading the fruit image.');
     };
-  }
 });
 
 window.addEventListener('resize', () => {
