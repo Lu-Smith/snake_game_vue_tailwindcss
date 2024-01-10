@@ -70,12 +70,18 @@
         }
 
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
-        //snake
+        
+         // snake - head
+        context.beginPath();
         context.arc(snake.value[0][0], snake.value[0][1], 5.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#c1e205";
-        context.arc(snake.value[1][0], snake.value[1][1], 5.5, 0, 2 * Math.PI, false);
+        context.fill();
+
+        // snake - body
+        context.beginPath();
+        context.arc(snake.value[1][0], snake.value[1][1], 4.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#ff5959";
         context.fill();
-    }
+        }
     };
 </script>
