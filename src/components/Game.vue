@@ -1,10 +1,5 @@
 <template>
-    <div class="flex flex-row justify-center items-center gap-6">
-      <button 
-      @click="startGame"
-      :class="mode ? 'text-textColor' : 'text-addColor'">Start</button>
-      <button :class="mode ? 'text-textColor' : 'text-addColor'">Restart</button>
-    </div>
+    <GameControls :mode="mode" @startGame="startGame"/>
     <div class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
       <canvas
         :class="mode ? 'bg-green-200' : 'bg-slate-800'"
@@ -16,6 +11,7 @@
   
   <script lang="ts" setup>
     import { ref, onMounted, toRefs } from 'vue';
+    import GameControls from '../components/Game/GameControls.vue';
     import Apple from '../assets/smallApple.png';
 
     defineProps(['mode']);
