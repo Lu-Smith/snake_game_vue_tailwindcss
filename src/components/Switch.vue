@@ -16,6 +16,5 @@
   
   const toggleMode = () => {
     emits('update:mode', !props.mode);
-    console.log(props.mode)
   };
   </script>
