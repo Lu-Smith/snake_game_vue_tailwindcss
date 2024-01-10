@@ -1,20 +1,26 @@
 <template>
     <div>
-        <div>
-            <div class="text-green-600">
-                <span class="material-symbols-outlined text-lightColor">
+        <div class="text-center">
+            <div 
+            @click="darkMode"
+            v-if="mode"
+            class="text-green-600" >
+                <span class="material-symbols-outlined text-lightColor text-4xl">
                 emoji_objects
                 </span>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined text-4xl">
                 toggle_off
                 </span>
             </div>
-            <div class="text-red-600">
-                <span class="material-symbols-outlined">
-                toggle_on
-                </span>
-                <span class="material-symbols-outlined text-darkColor">
+            <div 
+            @click="lightMode"
+            v-else
+            class="text-red-600">
+                <span class="material-symbols-outlined text-darkColor text-4xl">
                 nightlight
+                </span>
+                <span class="material-symbols-outlined text-4xl">
+                toggle_on
                 </span>
             </div>
         </div>
@@ -22,3 +28,17 @@
         <p>Enjoy the classic thrill of maneuvering a snake through the digital realm. Have fun and challenge yourself to grow as long as possible. Best of luck!</p>
     </div>
 </template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const mode =ref(false);
+
+function lightMode() {
+    mode.value = !mode.value
+};
+
+function darkMode() {
+    mode.value = !mode.value
+};
+</script>
