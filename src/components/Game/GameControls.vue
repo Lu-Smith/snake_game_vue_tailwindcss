@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 
-const props = defineProps<{ mode: boolean }>();
+const { mode } = defineProps(['mode']);
 const emits = defineEmits(['startGame']);
 
 const handleStartGame = () => {
