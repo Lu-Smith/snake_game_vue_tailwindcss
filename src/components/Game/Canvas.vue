@@ -11,6 +11,10 @@
 <script lang="ts" setup>
 import { ref, onMounted, toRefs } from 'vue';
 
+const props = defineProps(['mode', 'fruit']);
+const { fruit } = toRefs(props);
+console.log(fruit)
+
 const { canvasWidth, canvasHeight, gameCanvas, fruitImageLoaded } = toRefs({
     canvasWidth: ref<string>('100%'),
     canvasHeight: '500px',
@@ -21,22 +25,24 @@ const { canvasWidth, canvasHeight, gameCanvas, fruitImageLoaded } = toRefs({
 const emits = defineEmits(['gameCanvas', 'fruitImageLoaded']);
 
 onMounted(() => {
-    fruit.onload = () => {
-        fruitImageLoaded.value = true;
-        emits('fruitImageLoaded', fruitImageLoaded.value);
+  if (fruit) {
+    fruit.value.onload = () => {
+      fruitImageLoaded.value = true;
+      emits('fruitImageLoaded', fruitImageLoaded.value);
     };
 
     // Handle image load error
-    fruit.onerror = () => {
-        console.error('Error loading the fruit image.');
+    fruit.value.onerror = () => {
+      console.error('Error loading the fruit image.');
     };
-
-    window.addEventListener('resize', () => {
-        canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
-    });
-
-    // Emit gameCanvas after it's ready
-    emits('gameCanvas', gameCanvas.value);
+  }
 });
+
+window.addEventListener('resize', () => {
+    canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
+});
+
+// Emit gameCanvas after it's ready
+emits('gameCanvas', gameCanvas.value);
 
 </script>
