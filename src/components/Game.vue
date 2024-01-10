@@ -59,14 +59,20 @@
         //apple
         const originalWidth = 60; // original width of the apple
         const aspectRatio = fruit.width / originalWidth;
-        const newWidth = 10; // desired width
-        const newHeight = 10 / aspectRatio;
+        let newWidth;
+        let newHeight;
+        if (window.innerWidth > 786) {
+            newWidth = 10;
+            newHeight = 12 / aspectRatio;;
+        } else {
+            newWidth = 14;
+            newHeight = 8 / aspectRatio;
+        }
 
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         //snake
         context.arc(snake.value[0][0], snake.value[0][1], 5.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#c1e205";
-        context.fill();
         context.arc(snake.value[1][0], snake.value[1][1], 5.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#ff5959";
         context.fill();
