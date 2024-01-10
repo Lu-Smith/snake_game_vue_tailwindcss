@@ -4,19 +4,25 @@
         <button :class="mode ? 'text-textColor' : 'text-addColor'">Restart</button>
     </div>
     <div 
-    
-    class="w-full h-full mt-4">
-        <canvas :class="mode ? 'bg-green-200' : 'bg-red-200'"  ref="gameCanvas" :width="canvasWidth" :height="canvasHeight"></canvas>
+    class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
+        <canvas 
+        :class="mode ? 'bg-green-200' : 'bg-slate-800'"  
+        ref="gameCanvas" 
+        style="width: 80%"
+        :style="{ height: canvasHeight, width: canvasWidth }">
+        </canvas>
     </div> 
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 
 defineProps(['mode']);
 
-const canvasWidth = '80%';
-const canvasHeight = '80%';
+const canvasWidth = computed(() => {
+  return window.innerWidth > 786 ? '60%' : '100%';
+});
+const canvasHeight = '500px';
 
 onMounted(() => {
 const canvas = ref<HTMLCanvasElement | null>(null);
