@@ -34,7 +34,7 @@
     fruit.src = Apple;
 
     //snake
-    const initialSnake = ref([[4,15], [4,15]]);
+    const initialSnake = ref([[100,65], [106,65]]);
     const snake = ref(initialSnake);
 
     onMounted(() => {
@@ -64,8 +64,11 @@
 
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         //snake
-        context.arc(30, 20, 5.5, 0, 2 * Math.PI, false);
+        context.arc(snake.value[0][0], snake.value[0][1], 5.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#c1e205";
+        context.fill();
+        context.arc(snake.value[1][0], snake.value[1][1], 5.5, 0, 2 * Math.PI, false);
+        context.fillStyle = "#ff5959";
         context.fill();
     }
     };
