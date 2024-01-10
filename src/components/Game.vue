@@ -72,16 +72,38 @@
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         
          // snake - head
-        context.beginPath();
-        context.arc(snake.value[0][0], snake.value[0][1], 5.5, 0, 2 * Math.PI, false);
-        context.fillStyle = "#c1e205";
-        context.fill();
+         drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 8);
 
         // snake - body
         context.beginPath();
-        context.arc(snake.value[1][0], snake.value[1][1], 4.5, 0, 2 * Math.PI, false);
+        context.arc(snake.value[1][0], snake.value[1][1], 5.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#ff5959";
         context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = '#000';
+        context.stroke();
+
+        function drawSnakeHead(context: CanvasRenderingContext2D, x:number, y:number, radius:number) {
+        // Head
+        context.beginPath();
+        context.arc(x, y, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = "#c1e205";
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = '#000';
+        context.stroke();
+
+        // Eyes
+        context.beginPath();
+        context.arc(x - 3, y + 2, 1.5, 0, 2 * Math.PI, false); // Left eye
+        context.fillStyle = "#000";
+        context.fill();
+
+        context.beginPath();
+        context.arc(x - 3, y - 2, 1.5, 0, 2 * Math.PI, false); // Right eye
+        context.fillStyle = "#000";
+        context.fill();
+      }
         }
     };
 </script>
