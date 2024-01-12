@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row justify-center items-center gap-6">
     <button @click="handleStartGame" :class="mode ? 'text-textColor' : 'text-addColor'">Start</button>
-    <button :class="mode ? 'text-textColor' : 'text-addColor'">Restart</button>
+    <button @click="handleStartGame" :class="mode ? 'text-textColor' : 'text-addColor'">Restart</button>
   </div>
 </template>
 

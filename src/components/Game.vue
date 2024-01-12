@@ -1,5 +1,5 @@
 <template>
-    <GameControls :mode="mode" @startGame="startGame"/>
+    <GameControls :mode="mode" @startGame="startGame" />
     <div class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
         <canvas
         :class="mode ? 'bg-green-200' : 'bg-slate-800'"
@@ -68,7 +68,7 @@
 
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         
-         // snake - head
+        // snake - head
          drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
 
         // snake - body
@@ -81,6 +81,7 @@
         context.stroke();
 
         function drawSnakeHead(context: CanvasRenderingContext2D, x:number, y:number, radius:number) {
+        
         // Head
         context.beginPath();
         context.arc(x, y, radius, 0, 2 * Math.PI, false);
