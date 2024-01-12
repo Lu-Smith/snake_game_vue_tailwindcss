@@ -1,20 +1,20 @@
 <template>
     <GameControls :mode="mode" @startGame="startGame"/>
     <div class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
-    <canvas
-      :class="mode ? 'bg-green-200' : 'bg-slate-800'"
-      ref="gameCanvas"
-      :style="{ height: canvasHeight, width: canvasWidth }"
-    ></canvas>
-  </div>
-  <GameCanvas :mode="mode" />
+        <canvas
+        :class="mode ? 'bg-green-200' : 'bg-slate-800'"
+        ref="gameCanvas"
+        :style="{ height: canvasHeight, width: canvasWidth }"
+        ></canvas>
+    </div>
+    <Score />
   </template>
   
   <script lang="ts" setup>
     import { ref, onMounted } from 'vue';
     import Apple from '../assets/smallApple.png';
     import GameControls from './Game/GameControls.vue';
-    import GameCanvas from './Game/GameCanvas.vue';
+    import Score from './Game/Score.vue';
 
     defineProps(['mode']);
 
