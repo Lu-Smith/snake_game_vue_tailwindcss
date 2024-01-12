@@ -28,18 +28,24 @@ export function drawSnakeHead(
     eyeOffsetrY = 2.5;
   } else if (direction[0] === -1) {
     // Moving left
-    eyeOffsetlX = -2;
-    eyeOffsetrX = -2;
+    eyeOffsetlX = -1.5;
+    eyeOffsetrX = -1.5;
+    eyeOffsetlY = 2;
+    eyeOffsetrY = 2.5;
   }
 
   if (direction[1] === 1) {
     // Moving down
-    eyeOffsetlX = -2;
-    eyeOffsetrX = -2;
+    eyeOffsetlX = 1.5;
+    eyeOffsetrX = 1.5;
+    eyeOffsetlY = 2;
+    eyeOffsetrY = 2.5;
   } else if (direction[1] === -1) {
     // Moving up
-    eyeOffsetlX = -2;
-    eyeOffsetrX = -2;
+    eyeOffsetlX = 1.5;
+    eyeOffsetrX = 1.5;
+    eyeOffsetlY = 2;
+    eyeOffsetrY = 2.5;
   }
 
   context.beginPath();
