@@ -142,7 +142,7 @@
         if (newSnakeHead[0] === apple.value[0] && newSnakeHead[1] === apple.value[1]) {
             score.value++;
             // Place a new apple at a random position
-            apple.value = [Math.floor(Math.random() * 20) * 30, Math.floor(Math.random() * 15) * 30];
+            apple.value = [Math.floor(Math.random() * 20) * 20, Math.floor(Math.random() * 15) * 20];
         }
     };
 
