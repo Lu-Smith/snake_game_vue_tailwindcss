@@ -80,12 +80,23 @@
     const updateGame = () => {
     const context = gameCanvas.value?.getContext('2d');
 
-    if (context && fruitImageLoaded.value && gameRunning.value) {
+    if (context && fruitImageLoaded.value && gameRunning.value && gameCanvas.value) {
         const newSnake = [...snake.value];
         const newSnakeHead = [
             newSnake[0][0] + direction.value[0], 
             newSnake[0][1] + direction.value[1]
         ];
+
+        if (
+        newSnakeHead[0] < 5 ||
+        newSnakeHead[0] >= gameCanvas.value.width - 5 ||
+        newSnakeHead[1] < 5 ||
+        newSnakeHead[1] >= gameCanvas.value.height -5
+        ) {
+        gameRunning.value = false;
+        return;
+        }
+
         newSnake.unshift(newSnakeHead);
         newSnake.pop();
         snake.value = newSnake;
@@ -104,10 +115,8 @@
         }
 
         // Clear the canvas
-        if(gameCanvas.value) {
             context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
-        }
-
+  
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
 
