@@ -39,6 +39,9 @@
     const snake = ref(initialSnake);
     const direction = ref([ -1, 0 ]);
 
+    //playing 
+    const gameRunning = ref(false);
+
     onMounted(() => {
         fruit.onload = () => {
             fruitImageLoaded.value = true;
@@ -54,8 +57,6 @@
         });
 
         window.addEventListener('keydown', handleKeyDown);
-
-        setInterval(updateGame, 100);
     });
 
     //game logic
@@ -76,10 +77,10 @@
 		}
     }
 
-    const updateGame = () => {
+const updateGame = () => {
   const context = gameCanvas.value?.getContext('2d');
 
-  if (context && fruitImageLoaded.value) {
+  if (context && fruitImageLoaded.value && gameRunning.value) {
     const newSnake = [...snake.value];
     const newSnakeHead = [newSnake[0][0] + direction.value[0], newSnake[0][1] + direction.value[1]];
     newSnake.unshift(newSnakeHead);
@@ -98,10 +99,10 @@
     }
 
     // Clear the canvas
-    if (gameCanvas.value) {
+    if(gameCanvas.value) {
         context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
     }
-    
+
     // Draw the apple
     context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
 
@@ -119,7 +120,8 @@
   }
 };
 
-    const startGame = () => {
+const startGame = () => {
+    gameRunning.value = true;
     const context = gameCanvas.value?.getContext('2d');
     score.value = 0;
     snake.value = initialSnake.value;
@@ -158,5 +160,6 @@
         //playing the game
         window.addEventListener('keydown', handleKeyDown);
     }
+    setInterval(updateGame, 100);
     };
 </script>
