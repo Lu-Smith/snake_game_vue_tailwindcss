@@ -88,10 +88,10 @@
         ];
 
         if (
-        newSnakeHead[0] < 5 ||
-        newSnakeHead[0] >= gameCanvas.value.width - 5 ||
-        newSnakeHead[1] < 5 ||
-        newSnakeHead[1] >= gameCanvas.value.height -5
+        newSnakeHead[0] < 3 ||
+        newSnakeHead[0] >= gameCanvas.value.width - 3 ||
+        newSnakeHead[1] < 3 ||
+        newSnakeHead[1] >= gameCanvas.value.height - 3
         ) {
         gameRunning.value = false;
         return;
@@ -111,7 +111,7 @@
             score.value++;
             snake.value.push([0, 0]);
             placeNewApple();
-            
+
         } else {
             newSnake.pop();
         }
@@ -130,7 +130,7 @@
         }
 
         // Clear the canvas
-            context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
+        context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
   
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
