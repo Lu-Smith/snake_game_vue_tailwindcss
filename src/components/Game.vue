@@ -97,10 +97,10 @@
         let newWidth, newHeight;
         if (window.innerWidth > 786) {
         newWidth = 10;
-        newHeight = 12 / aspectRatio;
+        newHeight = 10 / aspectRatio;
         } else {
-        newWidth = 14;
-        newHeight = 8 / aspectRatio;
+        newWidth = 20;
+        newHeight = 10 / aspectRatio;
         }
 
         // Clear the canvas
