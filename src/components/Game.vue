@@ -19,10 +19,13 @@
 
     defineProps(['mode']);
 
+    //canvas
     const canvasWidth = ref<string>('100%');
     const canvasHeight ='500px';
     const gameCanvas = ref<HTMLCanvasElement | null>(null);
     const fruitImageLoaded = ref<boolean>(false);
+
+    //score
     const score = ref<number>(0);
    
     //apple
@@ -34,6 +37,7 @@
     //snake
     const initialSnake = ref([[100,65], [106,65]]);
     const snake = ref(initialSnake);
+    const direction = ref([ 0, -1 ]);
 
 
     onMounted(() => {
@@ -53,7 +57,20 @@
 
     //game logic
     const handleKeyDown = (event: KeyboardEvent) => {
-        
+        switch (event.key) {
+			case "ArrowLeft":
+				direction.value =[ -1, 0 ]
+				break
+			case "ArrowUp":
+				direction.value =[ 0, -1 ]
+				break
+			case "ArrowRight":
+				direction.value =[ 1, 0 ]
+				break
+			case "ArrowDown":
+				direction.value =[ 0, 1 ]
+				break
+		}
     }
 
     const startGame = () => {
