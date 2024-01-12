@@ -7,7 +7,7 @@
         :style="{ height: canvasHeight, width: canvasWidth }"
         ></canvas>
     </div>
-    <Score />
+    <Score :score="score"/>
   </template>
   
   <script lang="ts" setup>
@@ -18,10 +18,11 @@
 
     defineProps(['mode']);
 
-    const canvasWidth =ref<string>('100%');
+    const canvasWidth = ref<string>('100%');
     const canvasHeight ='500px';
-    const gameCanvas =ref<HTMLCanvasElement | null>(null);
-    const fruitImageLoaded =ref<boolean>(false);
+    const gameCanvas = ref<HTMLCanvasElement | null>(null);
+    const fruitImageLoaded = ref<boolean>(false);
+    const score = ref<number>(0);
    
     //apple
     const initialApple = ref([60, 20]);
