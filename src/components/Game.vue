@@ -109,10 +109,9 @@
 
         if (distanceX <= 4 && distanceY <= 5) {
             score.value++;
+            snake.value.push([0, 0]);
             placeNewApple();
-            const tail = newSnake[newSnake.length - 1];
-            newSnake.push([...tail]);
-
+            
         } else {
             newSnake.pop();
         }
