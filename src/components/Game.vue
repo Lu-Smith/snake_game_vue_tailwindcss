@@ -29,13 +29,13 @@
     const score = ref<number>(0);
    
     //apple
-    const initialApple = ref([60, 20]);
+    const initialApple = ref([80, 50]);
     const apple = ref(initialApple);
     const fruit = new Image();
     fruit.src = Apple;
 
     //snake
-    const initialSnake = ref([[100,65], [106,65]]);
+    const initialSnake = ref([[100,25], [106,85]]);
     const snake = ref(initialSnake);
     const direction = ref([ -1, 0 ]);
 
@@ -82,7 +82,10 @@ const updateGame = () => {
 
   if (context && fruitImageLoaded.value && gameRunning.value) {
     const newSnake = [...snake.value];
-    const newSnakeHead = [newSnake[0][0] + direction.value[0], newSnake[0][1] + direction.value[1]];
+    const newSnakeHead = [
+        newSnake[0][0] + direction.value[0], 
+        newSnake[0][1] + direction.value[1]
+    ];
     newSnake.unshift(newSnakeHead);
     newSnake.pop();
     snake.value = newSnake;
@@ -108,9 +111,14 @@ const updateGame = () => {
 
     // Draw the snake
     drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
+
+    // Draw the snkaes'body
     for (let i = 1; i < snake.value.length; i++) {
+      const bodyPartX = snake.value[i][0] + direction.value[0] * i * -6;
+      const bodyPartY = snake.value[i][1] + direction.value[1] * i * -6;
+
       context.beginPath();
-      context.arc(snake.value[i][0], snake.value[i][1], 5.5, 0, 2 * Math.PI, false);
+      context.arc(bodyPartX, bodyPartY, 5.5, 0, 2 * Math.PI, false);
       context.fillStyle = '#ff5959';
       context.fill();
       context.lineWidth = 1;
@@ -128,5 +136,5 @@ const startGame = () => {
     direction.value = [-1, 0]
   
     setInterval(updateGame, 100);
-    };
+};
 </script>
