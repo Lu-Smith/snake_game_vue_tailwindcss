@@ -36,16 +36,16 @@ export function drawSnakeHead(
 
   if (direction[1] === 1) {
     // Moving down
-    eyeOffsetlX = 1.5;
-    eyeOffsetrX = 1.5;
-    eyeOffsetlY = 2;
-    eyeOffsetrY = 2.5;
+    eyeOffsetlX = 2;
+    eyeOffsetrX = -2;
+    eyeOffsetlY = 2.5;
+    eyeOffsetrY = -2.5;
   } else if (direction[1] === -1) {
     // Moving up
-    eyeOffsetlX = 1.5;
-    eyeOffsetrX = 1.5;
-    eyeOffsetlY = 2;
-    eyeOffsetrY = 2.5;
+    eyeOffsetlX = 2;
+    eyeOffsetrX = -2;
+    eyeOffsetlY = -2;
+    eyeOffsetrY = 2;
   }
 
   context.beginPath();
