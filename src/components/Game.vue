@@ -7,22 +7,22 @@
       :style="{ height: canvasHeight, width: canvasWidth }"
     ></canvas>
   </div>
+  <GameCanvas />
   </template>
   
   <script lang="ts" setup>
-    import { ref, onMounted, toRefs} from 'vue';
+    import { ref, onMounted} from 'vue';
     import Apple from '../assets/smallApple.png';
     import GameControls from './Game/GameControls.vue';
+    import GameCanvas from './Game/GameCanvas.vue';
 
     defineProps(['mode']);
 
-    const { canvasWidth, canvasHeight, gameCanvas, fruitImageLoaded } = toRefs({
-    canvasWidth: ref<string>('100%'),
-    canvasHeight: '500px',
-    gameCanvas: ref<HTMLCanvasElement | null>(null),
-    fruitImageLoaded: ref<boolean>(false),
-    });
-
+    const canvasWidth =ref<string>('100%');
+    const canvasHeight ='500px';
+    const gameCanvas =ref<HTMLCanvasElement | null>(null);
+    const fruitImageLoaded =ref<boolean>(false);
+   
     //apple
     const initialApple = ref([60, 20]);
     const apple = ref(initialApple);
