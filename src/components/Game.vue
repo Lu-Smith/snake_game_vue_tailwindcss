@@ -143,13 +143,23 @@
         const bodyPartX = snake.value[i][0] + direction.value[0] * i * -6;
         const bodyPartY = snake.value[i][1] + direction.value[1] * i * -6;
 
+        if (i % 2 === 0) {
         context.beginPath();
         context.arc(bodyPartX, bodyPartY, 4.5, 0, 2 * Math.PI, false);
-        context.fillStyle = '#ff5959';
+        context.fillStyle = "#a3d001";
         context.fill();
         context.lineWidth = 1;
         context.strokeStyle = '#000';
         context.stroke();
+        } else {
+            context.beginPath();
+            context.arc(bodyPartX, bodyPartY, 4.5, 0, 2 * Math.PI, false);
+            context.fillStyle = "#0d9123";
+            context.fill();
+            context.lineWidth = 1;
+            context.strokeStyle = '#000';
+            context.stroke();
+        }
         }
     }
     };
