@@ -49,12 +49,12 @@ export function drawSnakeHead(
   }
 
   context.beginPath();
-  context.arc(x + eyeOffsetlX, y + eyeOffsetlY, 1.5, 0, 2 * Math.PI, false); // Left eye
+  context.arc(x + eyeOffsetlX, y + eyeOffsetlY, 1, 0, 2 * Math.PI, false); // Left eye
   context.fillStyle = "#000";
   context.fill();
 
   context.beginPath();
-  context.arc(x + eyeOffsetrX, y - eyeOffsetrY, 1.5, 0, 2 * Math.PI, false); // Right eye
+  context.arc(x + eyeOffsetrX, y - eyeOffsetrY, 1, 0, 2 * Math.PI, false); // Right eye
   context.fillStyle = "#000";
   context.fill();
   }

@@ -112,7 +112,7 @@
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
 
         // Draw the snake
-        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6, direction.value);
+        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value);
 
         // Draw the snkaes'body
         for (let i = 1; i < snake.value.length; i++) {
@@ -120,7 +120,7 @@
         const bodyPartY = snake.value[i][1] + direction.value[1] * i * -6;
 
         context.beginPath();
-        context.arc(bodyPartX, bodyPartY, 5.5, 0, 2 * Math.PI, false);
+        context.arc(bodyPartX, bodyPartY, 4.5, 0, 2 * Math.PI, false);
         context.fillStyle = '#ff5959';
         context.fill();
         context.lineWidth = 1;
@@ -132,14 +132,27 @@
 
     const snakeAteApple = () => {
         const newSnakeHead = [
-            snake.value[0][0] + direction.value[0] - 7,
-            snake.value[0][1] + direction.value[1] -5,
+            snake.value[0][0] + direction.value[0] - 10,
+            snake.value[0][1] + direction.value[1] - 6,
         ];
 
         console.log('snake', newSnakeHead);
         console.log('apple', apple.value)
 
-        if (newSnakeHead[0] === apple.value[0] && newSnakeHead[1] === apple.value[1]) {
+        if (
+            newSnakeHead[0] === apple.value[0] && newSnakeHead[1] === apple.value[1]
+            || newSnakeHead[0] + 1 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
+            || newSnakeHead[0] - 1 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
+            || newSnakeHead[0] + 2 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
+            || newSnakeHead[0] - 2 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
+            || newSnakeHead[0] + 3 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
+            || newSnakeHead[0] - 3 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
+            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] + 1 === apple.value[1]
+            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] - 1 === apple.value[1]
+            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] + 2 === apple.value[1]
+            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] - 2 === apple.value[1]
+            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] + 3 === apple.value[1]
+            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] - 3 === apple.value[1]) {
             score.value++;
             placeNewApple();
         }
