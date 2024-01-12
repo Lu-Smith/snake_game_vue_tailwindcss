@@ -7,11 +7,11 @@
       :style="{ height: canvasHeight, width: canvasWidth }"
     ></canvas>
   </div>
-  <GameCanvas />
+  <GameCanvas :mode="mode" />
   </template>
   
   <script lang="ts" setup>
-    import { ref, onMounted} from 'vue';
+    import { ref, onMounted } from 'vue';
     import Apple from '../assets/smallApple.png';
     import GameControls from './Game/GameControls.vue';
     import GameCanvas from './Game/GameCanvas.vue';
