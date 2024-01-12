@@ -122,44 +122,11 @@ const updateGame = () => {
 
 const startGame = () => {
     gameRunning.value = true;
-    const context = gameCanvas.value?.getContext('2d');
     score.value = 0;
     snake.value = initialSnake.value;
     apple.value = initialApple.value;
     direction.value = [-1, 0]
-
-    if (context && fruitImageLoaded.value) { 
-       
-        const originalWidth = 60; // original width of the apple
-        const aspectRatio = fruit.width / originalWidth;
-        let newWidth;
-        let newHeight;
-        if (window.innerWidth > 786) {
-            newWidth = 10;
-            newHeight = 12 / aspectRatio;;
-        } else {
-            newWidth = 14;
-            newHeight = 8 / aspectRatio;
-        }
-
-        //apple
-        context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
-        
-        // snake - head
-        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
-
-        // snake - body
-        context.beginPath();
-        context.arc(snake.value[1][0], snake.value[1][1], 5.5, 0, 2 * Math.PI, false);
-        context.fillStyle = "#ff5959";
-        context.fill();
-        context.lineWidth = 1;
-        context.strokeStyle = '#000';
-        context.stroke();
-
-        //playing the game
-        window.addEventListener('keydown', handleKeyDown);
-    }
+  
     setInterval(updateGame, 100);
     };
 </script>
