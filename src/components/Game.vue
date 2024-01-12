@@ -98,10 +98,26 @@
         }
 
         newSnake.unshift(newSnakeHead);
-        newSnake.pop();
-        snake.value = newSnake;
 
-        snakeAteApple();
+        const head = [
+            snake.value[0][0] + direction.value[0] - 10,
+            snake.value[0][1] + direction.value[1] - 6,
+        ];
+
+        const distanceX = Math.abs(head[0] - apple.value[0]);
+        const distanceY = Math.abs(head[1] - apple.value[1]);
+
+        if (distanceX <= 4 && distanceY <= 5) {
+            score.value++;
+            placeNewApple();
+            const tail = newSnake[newSnake.length - 1];
+            newSnake.push([...tail]);
+
+        } else {
+            newSnake.pop();
+        }
+      
+        snake.value = newSnake;
 
         const originalWidth = 60;
         const aspectRatio = fruit.width / originalWidth;
@@ -137,21 +153,6 @@
         context.stroke();
         }
     }
-    };
-
-    const snakeAteApple = () => {
-        const newSnakeHead = [
-            snake.value[0][0] + direction.value[0] - 10,
-            snake.value[0][1] + direction.value[1] - 6,
-        ];
-
-        const distanceX = Math.abs(newSnakeHead[0] - apple.value[0]);
-        const distanceY = Math.abs(newSnakeHead[1] - apple.value[1]);
-
-        if (distanceX <= 4 && distanceY <= 5) {
-            score.value++;
-            placeNewApple();
-        }
     };
 
     const placeNewApple = () => {
