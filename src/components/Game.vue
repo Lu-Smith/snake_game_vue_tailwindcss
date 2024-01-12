@@ -37,8 +37,7 @@
     //snake
     const initialSnake = ref([[100,65], [106,65]]);
     const snake = ref(initialSnake);
-    const direction = ref([ 0, -1 ]);
-
+    const direction = ref([ -1, 0 ]);
 
     onMounted(() => {
         fruit.onload = () => {
@@ -49,10 +48,14 @@
         fruit.onerror = () => {
             console.error('Error loading the fruit image.');
         };
-    });
 
-    window.addEventListener('resize', () => {
-    canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
+        window.addEventListener('resize', () => {
+        canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
+        });
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        setInterval(updateGame, 100);
     });
 
     //game logic
@@ -73,16 +76,57 @@
 		}
     }
 
+    const updateGame = () => {
+  const context = gameCanvas.value?.getContext('2d');
+
+  if (context && fruitImageLoaded.value) {
+    const newSnake = [...snake.value];
+    const newSnakeHead = [newSnake[0][0] + direction.value[0], newSnake[0][1] + direction.value[1]];
+    newSnake.unshift(newSnakeHead);
+    newSnake.pop();
+    snake.value = newSnake;
+
+    const originalWidth = 60;
+    const aspectRatio = fruit.width / originalWidth;
+    let newWidth, newHeight;
+    if (window.innerWidth > 786) {
+      newWidth = 10;
+      newHeight = 12 / aspectRatio;
+    } else {
+      newWidth = 14;
+      newHeight = 8 / aspectRatio;
+    }
+
+    // Clear the canvas
+    if (gameCanvas.value) {
+        context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
+    }
+    
+    // Draw the apple
+    context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
+
+    // Draw the snake
+    drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
+    for (let i = 1; i < snake.value.length; i++) {
+      context.beginPath();
+      context.arc(snake.value[i][0], snake.value[i][1], 5.5, 0, 2 * Math.PI, false);
+      context.fillStyle = '#ff5959';
+      context.fill();
+      context.lineWidth = 1;
+      context.strokeStyle = '#000';
+      context.stroke();
+    }
+  }
+};
+
     const startGame = () => {
     const context = gameCanvas.value?.getContext('2d');
     score.value = 0;
     snake.value = initialSnake.value;
     apple.value = initialApple.value;
-    direction.value = [0, -1]
+    direction.value = [-1, 0]
 
     if (context && fruitImageLoaded.value) { 
-        const newSnake = [...snake.value];
-
        
         const originalWidth = 60; // original width of the apple
         const aspectRatio = fruit.width / originalWidth;
