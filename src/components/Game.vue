@@ -15,6 +15,7 @@
     import Apple from '../assets/smallApple.png';
     import GameControls from './Game/GameControls.vue';
     import Score from './Game/Score.vue';
+    import { drawSnakeHead } from '../utils/drawSnakeHeadUtils';
 
     defineProps(['mode']);
 
@@ -51,6 +52,7 @@
 
     const startGame = () => {
     const context = gameCanvas.value?.getContext('2d');
+    score.value = 0;
 
     if (context && fruitImageLoaded.value) {
         //apple
@@ -69,7 +71,7 @@
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         
         // snake - head
-         drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
+        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
 
         // snake - body
         context.beginPath();
@@ -79,29 +81,6 @@
         context.lineWidth = 1;
         context.strokeStyle = '#000';
         context.stroke();
-
-        function drawSnakeHead(context: CanvasRenderingContext2D, x:number, y:number, radius:number) {
-        
-        // Head
-        context.beginPath();
-        context.arc(x, y, radius, 0, 2 * Math.PI, false);
-        context.fillStyle = "#c1e205";
-        context.fill();
-        context.lineWidth = 1;
-        context.strokeStyle = '#000';
-        context.stroke();
-
-        // Eyes
-        context.beginPath();
-        context.arc(x - 3, y + 2, 1.5, 0, 2 * Math.PI, false); // Left eye
-        context.fillStyle = "#000";
-        context.fill();
-
-        context.beginPath();
-        context.arc(x - 3, y - 2, 1.5, 0, 2 * Math.PI, false); // Right eye
-        context.fillStyle = "#000";
-        context.fill();
-      }
-        }
+    }
     };
 </script>
