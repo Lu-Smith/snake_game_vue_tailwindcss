@@ -136,23 +136,10 @@
             snake.value[0][1] + direction.value[1] - 6,
         ];
 
-        console.log('snake', newSnakeHead);
-        console.log('apple', apple.value)
+        const distanceX = Math.abs(newSnakeHead[0] - apple.value[0]);
+        const distanceY = Math.abs(newSnakeHead[1] - apple.value[1]);
 
-        if (
-            newSnakeHead[0] === apple.value[0] && newSnakeHead[1] === apple.value[1]
-            || newSnakeHead[0] + 1 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
-            || newSnakeHead[0] - 1 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
-            || newSnakeHead[0] + 2 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
-            || newSnakeHead[0] - 2 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
-            || newSnakeHead[0] + 3 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
-            || newSnakeHead[0] - 3 === apple.value[0] && newSnakeHead[1]  === apple.value[1]
-            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] + 1 === apple.value[1]
-            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] - 1 === apple.value[1]
-            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] + 2 === apple.value[1]
-            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] - 2 === apple.value[1]
-            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] + 3 === apple.value[1]
-            || newSnakeHead[0] === apple.value[0] && newSnakeHead[1] - 3 === apple.value[1]) {
+        if (distanceX <= 4 && distanceY <= 5) {
             score.value++;
             placeNewApple();
         }
