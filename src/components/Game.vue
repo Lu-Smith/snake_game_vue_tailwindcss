@@ -76,8 +76,13 @@
     const startGame = () => {
     const context = gameCanvas.value?.getContext('2d');
     score.value = 0;
+    snake.value = initialSnake.value;
+    apple.value = initialApple.value;
+    direction.value = [0, -1]
 
-    if (context && fruitImageLoaded.value) {
+    if (context && fruitImageLoaded.value) { 
+        const newSnake = [...snake.value];
+
        
         const originalWidth = 60; // original width of the apple
         const aspectRatio = fruit.width / originalWidth;
