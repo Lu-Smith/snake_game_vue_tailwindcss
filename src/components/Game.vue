@@ -75,66 +75,84 @@
 				direction.value =[ 0, 1 ]
 				break
 		}
+    };
+
+    const updateGame = () => {
+    const context = gameCanvas.value?.getContext('2d');
+
+    if (context && fruitImageLoaded.value && gameRunning.value) {
+        const newSnake = [...snake.value];
+        const newSnakeHead = [
+            newSnake[0][0] + direction.value[0], 
+            newSnake[0][1] + direction.value[1]
+        ];
+        newSnake.unshift(newSnakeHead);
+        newSnake.pop();
+        snake.value = newSnake;
+
+        snakeAteApple();
+
+        const originalWidth = 60;
+        const aspectRatio = fruit.width / originalWidth;
+        let newWidth, newHeight;
+        if (window.innerWidth > 786) {
+        newWidth = 10;
+        newHeight = 12 / aspectRatio;
+        } else {
+        newWidth = 14;
+        newHeight = 8 / aspectRatio;
+        }
+
+        // Clear the canvas
+        if(gameCanvas.value) {
+            context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
+        }
+
+        // Draw the apple
+        context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
+
+        // Draw the snake
+        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6, direction.value);
+
+        // Draw the snkaes'body
+        for (let i = 1; i < snake.value.length; i++) {
+        const bodyPartX = snake.value[i][0] + direction.value[0] * i * -6;
+        const bodyPartY = snake.value[i][1] + direction.value[1] * i * -6;
+
+        context.beginPath();
+        context.arc(bodyPartX, bodyPartY, 5.5, 0, 2 * Math.PI, false);
+        context.fillStyle = '#ff5959';
+        context.fill();
+        context.lineWidth = 1;
+        context.strokeStyle = '#000';
+        context.stroke();
+        }
     }
+    };
 
-const updateGame = () => {
-  const context = gameCanvas.value?.getContext('2d');
+    const snakeAteApple = () => {
+        const newSnakeHead = [
+            snake.value[0][0] + direction.value[0] - 7,
+            snake.value[0][1] + direction.value[1] -5,
+        ];
 
-  if (context && fruitImageLoaded.value && gameRunning.value) {
-    const newSnake = [...snake.value];
-    const newSnakeHead = [
-        newSnake[0][0] + direction.value[0], 
-        newSnake[0][1] + direction.value[1]
-    ];
-    newSnake.unshift(newSnakeHead);
-    newSnake.pop();
-    snake.value = newSnake;
+        console.log('snake', newSnakeHead);
+        console.log('apple', apple.value)
 
-    const originalWidth = 60;
-    const aspectRatio = fruit.width / originalWidth;
-    let newWidth, newHeight;
-    if (window.innerWidth > 786) {
-      newWidth = 10;
-      newHeight = 12 / aspectRatio;
-    } else {
-      newWidth = 14;
-      newHeight = 8 / aspectRatio;
-    }
+        if (newSnakeHead[0] === apple.value[0] && newSnakeHead[1] === apple.value[1]) {
+            score.value++;
+            // Place a new apple at a random position
+            apple.value = [Math.floor(Math.random() * 20) * 30, Math.floor(Math.random() * 15) * 30];
+        }
+    };
 
-    // Clear the canvas
-    if(gameCanvas.value) {
-        context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
-    }
-
-    // Draw the apple
-    context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
-
-    // Draw the snake
-    drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6, direction.value);
-
-    // Draw the snkaes'body
-    for (let i = 1; i < snake.value.length; i++) {
-      const bodyPartX = snake.value[i][0] + direction.value[0] * i * -6;
-      const bodyPartY = snake.value[i][1] + direction.value[1] * i * -6;
-
-      context.beginPath();
-      context.arc(bodyPartX, bodyPartY, 5.5, 0, 2 * Math.PI, false);
-      context.fillStyle = '#ff5959';
-      context.fill();
-      context.lineWidth = 1;
-      context.strokeStyle = '#000';
-      context.stroke();
-    }
-  }
-};
-
-const startGame = () => {
-    gameRunning.value = true;
-    score.value = 0;
-    snake.value = initialSnake.value;
-    apple.value = initialApple.value;
-    direction.value = [-1, 0]
-  
-    setInterval(updateGame, 100);
+    const startGame = () => {
+        gameRunning.value = true;
+        score.value = 0;
+        snake.value = initialSnake.value;
+        apple.value = initialApple.value;
+        direction.value = [-1, 0]
+    
+        setInterval(updateGame, 100);
 };
 </script>
