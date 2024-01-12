@@ -35,27 +35,33 @@
     const initialSnake = ref([[100,65], [106,65]]);
     const snake = ref(initialSnake);
 
-    onMounted(() => {
-    fruit.onload = () => {
-        fruitImageLoaded.value = true;
-    };
 
-    // Handle image load error
-    fruit.onerror = () => {
-        console.error('Error loading the fruit image.');
-    };
+    onMounted(() => {
+        fruit.onload = () => {
+            fruitImageLoaded.value = true;
+        };
+
+        // Handle image load error
+        fruit.onerror = () => {
+            console.error('Error loading the fruit image.');
+        };
     });
 
     window.addEventListener('resize', () => {
     canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
     });
 
+    //game logic
+    const handleKeyDown = (event: KeyboardEvent) => {
+        
+    }
+
     const startGame = () => {
     const context = gameCanvas.value?.getContext('2d');
     score.value = 0;
 
     if (context && fruitImageLoaded.value) {
-        //apple
+       
         const originalWidth = 60; // original width of the apple
         const aspectRatio = fruit.width / originalWidth;
         let newWidth;
@@ -68,6 +74,7 @@
             newHeight = 8 / aspectRatio;
         }
 
+        //apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         
         // snake - head
@@ -81,6 +88,9 @@
         context.lineWidth = 1;
         context.strokeStyle = '#000';
         context.stroke();
+
+        //playing the game
+        window.addEventListener('keydown', handleKeyDown);
     }
     };
 </script>
