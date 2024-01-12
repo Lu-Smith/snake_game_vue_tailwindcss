@@ -69,14 +69,14 @@
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
         
          // snake - head
-         drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 8);
+         drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
 
         // snake - body
         context.beginPath();
         context.arc(snake.value[1][0], snake.value[1][1], 5.5, 0, 2 * Math.PI, false);
         context.fillStyle = "#ff5959";
         context.fill();
-        context.lineWidth = 2;
+        context.lineWidth = 1;
         context.strokeStyle = '#000';
         context.stroke();
 
@@ -86,7 +86,7 @@
         context.arc(x, y, radius, 0, 2 * Math.PI, false);
         context.fillStyle = "#c1e205";
         context.fill();
-        context.lineWidth = 2;
+        context.lineWidth = 1;
         context.strokeStyle = '#000';
         context.stroke();
 
