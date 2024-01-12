@@ -172,6 +172,6 @@
         apple.value = initialApple.value;
         direction.value = [-1, 0]
     
-        setInterval(updateGame, 100);
+        setInterval(updateGame, 30);
 };
 </script>
