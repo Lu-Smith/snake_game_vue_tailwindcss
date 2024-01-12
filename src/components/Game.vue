@@ -110,7 +110,7 @@ const updateGame = () => {
     context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
 
     // Draw the snake
-    drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6);
+    drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 6, direction.value);
 
     // Draw the snkaes'body
     for (let i = 1; i < snake.value.length; i++) {
