@@ -2,13 +2,13 @@
   <div class="flex flex-row justify-center items-center gap-6">
     <button 
     @click="handleStartGame"
-    class="px-4 py-2 font-semibold rounded-lg shadow-sm" 
-    :class="mode ? 'bg-red-400 text-bgColor' : 'bg-red-600 text-textColor'"
+    class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base transition-all duration-300 ease-in-out" 
+    :class="mode ? 'bg-red-400 text-bgColor hover:bg-red-200' : 'bg-red-600 text-textColor hover:bg-red-400'"
     >Start</button>
     <button 
-    class="px-4 py-2 font-semibold rounded-lg shadow-sm"
+    class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base transition-all duration-300 ease-in-out"
     @click="handleStartGame" 
-    :class="mode ? 'bg-addColor text-textColor' : 'bg-bgColor text-textColor'"
+    :class="mode ? 'bg-addColor text-textColor hover:bg-linksColor' : 'bg-bgColor text-textColor hover:bg-addColor'"
     >Restart</button>
   </div>
 </template>
