@@ -21,7 +21,7 @@
 
     //canvas
     const canvasWidth = ref<string>('100%');
-    const canvasHeight ='500px';
+    const canvasHeight ='450px';
     const gameCanvas = ref<HTMLCanvasElement | null>(null);
     const fruitImageLoaded = ref<boolean>(false);
 
@@ -53,7 +53,7 @@
         };
 
         window.addEventListener('resize', () => {
-        canvasWidth.value = window.innerWidth > 786 ? '60%' : '100%';
+        canvasWidth.value = window.innerWidth > 786 ? '80%' : '100%';
         });
 
         window.addEventListener('keydown', handleKeyDown);
