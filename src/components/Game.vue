@@ -1,6 +1,6 @@
 <template>
     <GameControls :mode="mode" @startGame="startGame" />
-    <div class="w-full h-full mt-4 bg-red-200 flex justify-center items-center">
+    <div class="w-full h-full mt-4 flex justify-center items-center">
         <canvas
         :class="mode ? 'bg-green-200' : 'bg-slate-800'"
         ref="gameCanvas"
