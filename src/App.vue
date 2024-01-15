@@ -1,12 +1,12 @@
 <template>
   <div 
-  :class="mode ? 'bg-linksColor' : 'bg-bgColor'"
-  class="flex flex-col justify-center items-center gap-6 w-full h-full">
+  :class="mode ? 'bg-textColor' : 'bg-bgColor'"
+  class="flex flex-col justify-center items-center gap-6 w-full h-full p-4">
     <Switch v-model:mode="mode" />
     <div class="w-full h-full p-6">
       <Header :mode="mode"  />
     </div>
-    <div class="bg-blue-200 w-full h-full p-6">
+    <div class="bg-blue-200 max-w-192 h-full p-6 rounded-lg">
       <Game :mode="mode" />
     </div>
   </div>
