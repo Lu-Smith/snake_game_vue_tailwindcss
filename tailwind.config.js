@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        linksColor: '#ff5959', 
-        textColor: '#085f63', 
-        bgColor: '#feffdf',
-        addColor: '#49beb7',
+        linksColor: '#a2a8d3', 
+        textColor: '#e7eaf6', 
+        bgColor: '#113f67',
+        addColor: '#38598b',
         lightColor: '#fcff82',
         darkColor: '#f5f9ee',
       },
