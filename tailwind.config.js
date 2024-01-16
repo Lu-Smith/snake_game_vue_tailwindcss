@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        linksColor: '#a2a8d3', 
-        textColor: '#e7eaf6', 
+        linksColor: '#ffb5b5', 
+        textColor: ' #fafafa', 
         bgColor: '#113f67',
         addColor: '#38598b',
         lightColor: '#fcff82',
