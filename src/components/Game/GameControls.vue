@@ -3,7 +3,7 @@
     <button 
     @click="handleStartGame"
     class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base transition-all duration-300 ease-in-out" 
-    :class="mode ? 'bg-red-400 text-bgColor hover:bg-red-200' : 'bg-red-600 text-textColor hover:bg-red-400'"
+    :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200' : 'bg-red-600 text-textColor hover:bg-red-400'"
     >Start</button>
     <button 
     class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base transition-all duration-300 ease-in-out"
