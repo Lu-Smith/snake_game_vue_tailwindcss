@@ -6,7 +6,9 @@
     <div class="w-full h-full p-6">
       <Header :mode="mode"  />
     </div>
-    <div class="bg-blue-200 max-w-192 h-full pt-6 pb-4 md:p-6 rounded-lg">
+    <div 
+    :class="mode ? 'bg-linksColor' : 'bg-addColor'"
+    class=" max-w-192 h-full pt-6 pb-4 md:p-6 rounded-lg">
       <Game :mode="mode" />
     </div>
   </div>
