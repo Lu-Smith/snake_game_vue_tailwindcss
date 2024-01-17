@@ -104,7 +104,7 @@
         newSnake.unshift(newSnakeHead);
 
         const head = [
-            snake.value[0][0] + direction.value[0] - 8,
+            snake.value[0][0] + direction.value[0] - 5,
             snake.value[0][1] + direction.value[1] - 6,
         ];
 
@@ -164,7 +164,6 @@
                 context.strokeStyle = '#000';
                 context.stroke();
             }
-      
         }
     }};
 
@@ -180,11 +179,18 @@
     };
 
     const startGame = () => {
-            score.value = 0;
-            snake.value = initialSnake.value;
-            apple.value = initialApple.value; 
-            gameInterval = setInterval(updateGame, 30);
-            gameRunning.value = true;
+        if (gameInterval !== undefined) {
+        clearInterval(gameInterval);
+        gameInterval = undefined; 
+        }
+
+        score.value = 0;
+        snake.value = [[100,25], [106,85]];
+        apple.value = [80, 50]; 
+        direction.value = [ -1, 0 ];
+        gameInterval = setInterval(updateGame, 30);
+        gameRunning.value = true;
+        console.log('snake.value', snake.value, 'apple.value', apple.value)
     };
 
     const pauseGame = () => {
