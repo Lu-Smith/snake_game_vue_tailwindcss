@@ -1,5 +1,5 @@
 <template>
-    <GameControls :mode="mode" @startGame="startGame" :gameRunning="gameRunning" />
+    <GameControls :mode="mode" @startGame="startGame" @pauseGame="pauseGame" :gameRunning="gameRunning" />
     <div class="w-full h-full mt-4 flex justify-center items-center">
         <canvas
         :class="mode ? 'bg-red-100' : 'bg-slate-800'"
@@ -42,6 +42,7 @@
 
     //playing 
     const gameRunning = ref(false);
+    let gameInterval: undefined | number;
 
     onMounted(() => {
         fruit.onload = () => {
@@ -181,8 +182,12 @@
         score.value = 0;
         snake.value = initialSnake.value;
         apple.value = initialApple.value;
-        direction.value = [-1, 0]
+        direction.value = [-1, 0];
     
-        setInterval(updateGame, 30);
+        gameInterval = setInterval(updateGame, 30);
+    };
+
+    const pauseGame = () => {
+        clearInterval(gameInterval);
     };
 </script>
