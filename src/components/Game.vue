@@ -179,14 +179,12 @@
     };
 
     const startGame = () => {
-        gameRunning.value = true;
-        gamePaused.value = false;
-        score.value = 0;
-        snake.value = initialSnake.value;
-        apple.value = initialApple.value;
-        direction.value = [-1, 0];
-    
-        gameInterval = setInterval(updateGame, 30);
+            score.value = 0;
+            snake.value = initialSnake.value;
+            apple.value = initialApple.value;
+            gamePaused.value = false;  
+            gameInterval = setInterval(updateGame, 30);
+            gameRunning.value = true;
     };
 
     const pauseGame = () => {
