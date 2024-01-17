@@ -18,6 +18,7 @@
     import GameControls from './Game/GameControls.vue';
     import Score from './Game/Score.vue';
     import { drawSnakeHead } from '../utils/drawSnakeHeadUtils';
+    import { drawBodyPart } from '../utils/drawSnakeBodyUtils';
 
     defineProps(['mode']);
 
@@ -104,7 +105,7 @@
         newSnake.unshift(newSnakeHead);
 
         const head = [
-            snake.value[0][0] + direction.value[0] - 5,
+            snake.value[0][0] + direction.value[0] - 4,
             snake.value[0][1] + direction.value[1] - 6,
         ];
 
@@ -144,27 +145,33 @@
 
         // Draw the snkaes'body
         for (let i = 1; i < snake.value.length; i++) {
-            const bodyPartX = snake.value[i][0] + direction.value[0] * i * -6;
-            const bodyPartY = snake.value[i][1] + direction.value[1] * i * -6;
+      const bodyPart = snake.value[i];
+      const targetRotation =
+        direction.value[0] === 0 ? Math.PI / 2 : 0; // Target rotation based on new direction
+      const currentRotation = Math.atan2(
+        direction.value[1],
+        direction.value[0]
+      ); // Current rotation
 
-            if (i % 2 === 0) {
-                context.beginPath();
-                context.arc(bodyPartX, bodyPartY, 4.5, 0, 2 * Math.PI, false);
-                context.fillStyle = "#a3d001";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = '#000';
-                context.stroke();
-            } else {
-                context.beginPath();
-                context.arc(bodyPartX, bodyPartY, 4.5, 0, 2 * Math.PI, false);
-                context.fillStyle = "#0d9123";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = '#000';
-                context.stroke();
-            }
-        }
+      // Interpolate the rotation
+      const newRotation =
+        currentRotation +
+        (targetRotation - currentRotation) / 5; // Adjust the divisor for smoother or quicker transition
+
+      // Update the body part position
+      const bodyPartX = bodyPart[0] + direction.value[0] * i * -6;
+      const bodyPartY = bodyPart[1] + direction.value[1] * i * -6;
+
+      // Draw the body part with the new rotation
+      drawBodyPart(
+        context,
+        bodyPartX,
+        bodyPartY,
+        newRotation,
+        i % 2 === 0
+      );
+    }
+       
     }};
 
     const placeNewApple = () => {
