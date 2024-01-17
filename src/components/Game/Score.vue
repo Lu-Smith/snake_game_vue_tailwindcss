@@ -1,5 +1,7 @@
 <template>
-    <div class="flex flex-row justify-center items-center p-2">
+    <div 
+    v-if="gameRunning"
+    class="flex flex-row justify-center items-center p-2">
         <h3 
         :class="mode ? 'text-bgColor' : 'text-textColor'"
         class="font-semibold text-2xl">You ate</h3>
@@ -8,9 +10,23 @@
             <img src='../../assets/smallApple.png' alt="apple" class="h-[40px] w-[40px]">
         </div>
     </div>
+    <div 
+    v-if="score !== 0 && !gameRunning"
+    class="flex flex-row justify-center items-center p-2">
+        <h3 
+        :class="mode ? 'text-bgColor' : 'text-textColor'"
+        class="font-semibold text-base">You lost, try again... You ate</h3>
+        <div class="flex flex-row justify-center items-center p-2 pr-0">
+            <span class="text-2xl text-red-600">{{ score }}</span>
+            <img src='../../assets/smallApple.png' alt="apple" class="h-[30px] w-[30px]">
+        </div>
+        <h3 
+        :class="mode ? 'text-bgColor' : 'text-textColor'"
+        class="font-semibold text-base">.</h3>
+    </div>
 </template>
 
 <script lang="ts" setup>
-defineProps(['score', 'mode'])
+defineProps(['score', 'mode', 'gameRunning', 'initialSnake', 'snake'])
     
 </script>
