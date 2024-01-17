@@ -1,5 +1,5 @@
 <template>
-    <GameControls :mode="mode" @startGame="startGame" />
+    <GameControls :mode="mode" @startGame="startGame" :gameRunning="gameRunning" />
     <div class="w-full h-full mt-4 flex justify-center items-center">
         <canvas
         :class="mode ? 'bg-red-100' : 'bg-slate-800'"
