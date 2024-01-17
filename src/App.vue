@@ -1,7 +1,7 @@
 <template>
   <div 
   :class="mode ? 'bg-textColor' : 'bg-bgColor'"
-  class="flex flex-col justify-center items-center gap-6 w-full h-full p-4">
+  class="flex flex-col justify-center items-center gap-6 w-full h-full md:p-4 pt-4">
     <Switch v-model:mode="mode" />
     <div class="w-full h-full p-6">
       <Header :mode="mode"  />
