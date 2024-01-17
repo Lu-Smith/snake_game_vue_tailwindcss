@@ -1,5 +1,6 @@
 <template>
-    <GameControls :mode="mode" @startGame="startGame" @pauseGame="pauseGame" :gameRunning="gameRunning" :gamePaused="gamePaused" />
+    <GameControls :mode="mode" @startGame="startGame" @pauseGame="pauseGame"  @restartGame="restartGame"
+    :gameRunning="gameRunning" :gamePaused="gamePaused" />
     <div class="w-full h-full mt-4 flex justify-center items-center">
         <canvas
         :class="mode ? 'bg-red-100' : 'bg-slate-800'"
@@ -181,8 +182,7 @@
     const startGame = () => {
             score.value = 0;
             snake.value = initialSnake.value;
-            apple.value = initialApple.value;
-            gamePaused.value = false;  
+            apple.value = initialApple.value; 
             gameInterval = setInterval(updateGame, 30);
             gameRunning.value = true;
     };
@@ -190,5 +190,10 @@
     const pauseGame = () => {
         clearInterval(gameInterval);
         gamePaused.value = true;
+    };
+
+    const restartGame = () => {
+        gamePaused.value = false;
+        gameInterval = setInterval(updateGame, 30);
     };
 </script>
