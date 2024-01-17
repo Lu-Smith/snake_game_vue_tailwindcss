@@ -100,7 +100,7 @@
         newSnake.unshift(newSnakeHead);
 
         const head = [
-            snake.value[0][0] + direction.value[0] - 10,
+            snake.value[0][0] + direction.value[0] - 8,
             snake.value[0][1] + direction.value[1] - 6,
         ];
 
