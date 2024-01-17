@@ -7,7 +7,7 @@
         :style="{ height: canvasHeight, width: canvasWidth }"
         ></canvas>
     </div>
-    <Score :score="score" :mode="mode"/>
+    <Score :score="score" :mode="mode" :gameRunning="gameRunning"/>
   </template>
   
   <script lang="ts" setup>
