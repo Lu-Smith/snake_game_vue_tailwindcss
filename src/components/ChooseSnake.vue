@@ -16,32 +16,32 @@
 </template>
 
 <script lang="ts" setup>
-    import { ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
+  import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
+  import { drawBodyPart2 } from '../utils/drawSnakeBody2Utils';
 
-    defineProps(['mode']);
+  defineProps(['mode']);
 
-    const snakeCanvas = ref<HTMLCanvasElement | null>(null);
-    const initialSnake = ref([[50,75], [50,56]]);
-    const snake = ref(initialSnake);
-    import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
-    import { drawBodyPart2 } from '../utils/drawSnakeBody2Utils';
+  const snakeCanvas = ref<HTMLCanvasElement | null>(null);
+  const snake = ref([[50, 75], [80, 56], [80, 37], [80, 18]]);
+  const direction = ref([1, 0]);
 
-    onMounted(() => {
-        const context = snakeCanvas.value?.getContext('2d');
+  onMounted(() => {
+    const context = snakeCanvas.value?.getContext('2d');
 
-        if(context) {
-            drawSnakeHead2(context, snake.value[0][0], snake.value[0][1], 10.5);
+    if (context) {
+      drawSnakeHead2(context, snake.value[0][0], snake.value[0][1], 10.5);
 
-            for (let i = 1; i < snake.value.length; i++) {
-                const bodyPart = snake.value[i]; 
+      for (let i = 1; i < snake.value.length; i++) {
+        const bodyPart = snake.value[i];
 
-                // Draw the body part
-                const distanceFactor = 1.16;
-                bodyPart[0] = snake.value[i][1] * i * distanceFactor;
-                bodyPart[1] = snake.value[i][0] * i * distanceFactor;
+        // Draw the body part
+        const distanceFactor = 12;
+        bodyPart[0] = snake.value[i - 1][0] + direction.value[0] * distanceFactor;
+        bodyPart[1] = snake.value[i - 1][1] + direction.value[1] * distanceFactor;
 
-                drawBodyPart2(context, bodyPart[0], bodyPart[1], i % 2 === 0);
-            }
-        }
-    });
+        drawBodyPart2(context, bodyPart[0], bodyPart[1], i % 2 === 0);
+      }
+    }
+  });
 </script>
