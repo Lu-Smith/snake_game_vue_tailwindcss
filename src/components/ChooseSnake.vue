@@ -4,7 +4,7 @@
             <canvas
             :class="mode ? 'bg-red-100' : 'bg-slate-800'"
             class="border-2 border-focusColor"
-            ref="gameCanvas"
+            ref="snakeCanvas"
             ></canvas>
         </div>
         <button
@@ -12,10 +12,25 @@
         transition-all duration-300 ease-in-out border-2" 
         :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
         : 'bg-bgColor text-textColor hover:bg-red-400 border-focusColor'">My Snake</button>
-    </div>
-    
+    </div>  
 </template>
 
 <script lang="ts" setup>
+    import { ref, onMounted } from 'vue';
+
     defineProps(['mode']);
+
+    const snakeCanvas = ref<HTMLCanvasElement | null>(null);
+    const initialSnake = ref([[50,75], [45,85]]);
+    const snake = ref(initialSnake);
+    const direction = ref([ -1, 0 ]);
+    import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
+
+    onMounted(() => {
+        const context = snakeCanvas.value?.getContext('2d');
+
+        if(context) {
+            drawSnakeHead2(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value);
+        }
+    });
 </script>

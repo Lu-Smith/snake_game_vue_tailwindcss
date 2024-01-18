@@ -1,4 +1,4 @@
-export function drawSnakeHead(
+export function drawSnakeHead2(
     context: CanvasRenderingContext2D,
     x: number,
     y: number,
