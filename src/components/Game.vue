@@ -1,5 +1,10 @@
 <template>
-    <GameControls :mode="mode" @startGame="startGame" @pauseGame="pauseGame"  @restartGame="restartGame"
+    <GameControls 
+    :mode="mode"
+    :level="level"
+    @startGame="startGame" 
+    @pauseGame="pauseGame"  
+    @restartGame="restartGame"
     :gameRunning="gameRunning" :gamePaused="gamePaused" />
     <div class="w-full h-full mt-4 flex justify-center items-center">
         <canvas
@@ -30,6 +35,7 @@
 
     //score
     const score = ref<number>(0);
+    const level = ref<number>(0);
    
     //apple
     const initialApple = ref([80, 50]);
@@ -117,6 +123,14 @@
             snake.value.push([0, 0]);
             placeNewApple();
 
+            const scoreThresholds = [15, 30, 45, 55, 65, 75, 85, 90, 100];
+
+            for (let i = 0; i < scoreThresholds.length; i++) {
+                if (score.value >= scoreThresholds[i]) {
+                    level.value = i + 1;
+                }
+            }
+
         } else {
             newSnake.pop();
         }
@@ -158,7 +172,6 @@
                 i % 2 === 0
             );
         }
-       
     }};
 
     const placeNewApple = () => {
