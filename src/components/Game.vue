@@ -147,10 +147,10 @@
         for (let i = 1; i < snake.value.length; i++) {
         const bodyPart = snake.value[i]; 
        
-        // Update the body part position
-        const delayFactor = -5;
-        bodyPart[0] = snake.value[i][0] + direction.value[0] * delayFactor;
-        bodyPart[1] = snake.value[i][1] + direction.value[1] * delayFactor;
+        // Draw the body part
+        const distanceFactor = -5;
+        bodyPart[0] = snake.value[i][0] + direction.value[0] * distanceFactor;
+        bodyPart[1] = snake.value[i][1] + direction.value[1] * distanceFactor;
 
             drawBodyPart(
                 context,
