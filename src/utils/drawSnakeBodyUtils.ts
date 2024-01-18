@@ -2,13 +2,10 @@ export function drawBodyPart(
     context: CanvasRenderingContext2D,
     x: number,
     y: number,
-    rotation: number,
     isEven: boolean
     ) {
     context.save();
     context.translate(x, y);
-    context.rotate(rotation);
-
     context.beginPath();
     context.arc(0, 0, 4.5, 0, 2 * Math.PI, false);
 

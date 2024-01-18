@@ -145,32 +145,20 @@
 
         // Draw the snkaes'body
         for (let i = 1; i < snake.value.length; i++) {
-      const bodyPart = snake.value[i];
-      const targetRotation =
-        direction.value[0] === 0 ? Math.PI / 2 : 0; // Target rotation based on new direction
-      const currentRotation = Math.atan2(
-        direction.value[1],
-        direction.value[0]
-      ); // Current rotation
+        const bodyPart = snake.value[i]; 
+       
+        // Update the body part position
+        const delayFactor = -5;
+        bodyPart[0] = snake.value[i][0] + direction.value[0] * delayFactor;
+        bodyPart[1] = snake.value[i][1] + direction.value[1] * delayFactor;
 
-      // Interpolate the rotation
-      const newRotation =
-        currentRotation +
-        (targetRotation - currentRotation) / 5; // Adjust the divisor for smoother or quicker transition
-
-      // Update the body part position
-      const bodyPartX = bodyPart[0] + direction.value[0] * i * -6;
-      const bodyPartY = bodyPart[1] + direction.value[1] * i * -6;
-
-      // Draw the body part with the new rotation
-      drawBodyPart(
-        context,
-        bodyPartX,
-        bodyPartY,
-        newRotation,
-        i % 2 === 0
-      );
-    }
+            drawBodyPart(
+                context,
+                bodyPart[0],
+                bodyPart[1],
+                i % 2 === 0
+            );
+        }
        
     }};
 
