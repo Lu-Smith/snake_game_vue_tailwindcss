@@ -165,8 +165,14 @@
 
         // Draw the body part
         const distanceFactor = -5;
-        bodyPart[0] = snake.value[i][0] + direction.value[0] * distanceFactor;
-        bodyPart[1] = snake.value[i][1] + direction.value[1] * distanceFactor;
+        const newBodyPartX = bodyPart[0] + direction.value[0] * distanceFactor;
+        const newBodyPartY = bodyPart[1] + direction.value[1] * distanceFactor;
+
+        const canvasWidth = gameCanvas.value?.width || 0;
+        const canvasHeight = gameCanvas.value?.height || 0;
+
+        bodyPart[0] = Math.max(0, Math.min(newBodyPartX, canvasWidth));
+        bodyPart[1] = Math.max(0, Math.min(newBodyPartY, canvasHeight));
 
             drawBodyPart(
                 context,
