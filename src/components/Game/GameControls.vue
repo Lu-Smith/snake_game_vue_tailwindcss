@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <h2>Level {{ level }}</h2>
+  </div>
   <div class="flex flex-row justify-center items-center gap-6">
     <button 
     @click="handleStartGame"
@@ -22,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-defineProps(['mode', 'gameRunning', 'gamePaused']);
+defineProps(['mode', 'gameRunning', 'gamePaused', 'level']);
 const emits = defineEmits(['startGame', 'pauseGame', 'restartGame']);
 const handleStartGame = () => {
   emits('startGame');

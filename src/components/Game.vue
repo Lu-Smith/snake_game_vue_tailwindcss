@@ -142,11 +142,10 @@
 
         // Draw the snake
         drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value);
-
         // Draw the snkaes'body
         for (let i = 1; i < snake.value.length; i++) {
         const bodyPart = snake.value[i]; 
-       
+
         // Draw the body part
         const distanceFactor = -5;
         bodyPart[0] = snake.value[i][0] + direction.value[0] * distanceFactor;
