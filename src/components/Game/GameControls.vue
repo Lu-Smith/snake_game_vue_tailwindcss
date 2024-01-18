@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2>Level {{ level }}</h2>
+    <h2 
+    class="font-semibold text-red-600"
+    :class="mode ? 'text-red-600' : 'text-textColor'" >Level {{ level }}</h2>
   </div>
   <div class="flex flex-row justify-center items-center gap-6">
     <button 
