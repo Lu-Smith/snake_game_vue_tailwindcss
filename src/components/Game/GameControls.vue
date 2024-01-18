@@ -4,9 +4,9 @@
       <h2 
       class="font-semibold text-focusColor"
       :class="mode ? 'text-focusColor' : 'text-textColor'" >Level {{ level }} - 
-      <span v-if="level === 1" class="text-textColor">Crawling Speed</span>
-      <span v-if="level === 3" class="text-textColor">Turtle Speed</span>
-      <span v-if="level === 5" class="text-textColor">Walking Speed</span>
+      <span v-if="level === 1 || level === 2" class="text-textColor">Crawling Speed</span>
+      <span v-if="level === 3 || level === 4" class="text-textColor">Turtle Speed</span>
+      <span v-if="level === 5 || level === 6" class="text-textColor">Walking Speed</span>
       <span v-if="level === 7" class="text-textColor">Jogging Speed</span>
       <span v-if="level === 8" class="text-textColor">Cheetah Speed</span>
       <span v-if="level === 9" class="text-focusColor">Flash Speed</span>
