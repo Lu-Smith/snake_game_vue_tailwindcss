@@ -9,7 +9,7 @@
       <Header :mode="mode"  />
     </div>
     <div v-if="!choiceMade">
-      <ChooseSnake />
+      <ChooseSnake :mode="mode" />
     </div>
     <div 
     v-else
