@@ -5,7 +5,7 @@ export function drawSnakeHead(
     radius: number,
     direction: number[],
   ) {
-      // Head
+  // Head
   context.beginPath();
   context.arc(x, y, radius, 0, 2 * Math.PI, false);
   context.fillStyle = "#c1e205";

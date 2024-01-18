@@ -52,6 +52,8 @@
     const gameRunning = ref(false);
     const gamePaused = ref(false);
     let gameInterval: undefined | number;
+    let intervalTime: number = 30;
+    let previousLevel:number = 1;
 
     onMounted(() => {
         fruit.onload = () => {
@@ -92,6 +94,8 @@
     const context = gameCanvas.value?.getContext('2d');
 
     if (context && fruitImageLoaded.value && gameRunning.value && gameCanvas.value) {
+        intervalTime = 30 - 3 * level.value + 5;
+
         const newSnake = [...snake.value];
         const newSnakeHead = [
             newSnake[0][0] + direction.value[0], 
@@ -123,7 +127,7 @@
             snake.value.push([0, 0]);
             placeNewApple();
 
-            const scoreThresholds = [15, 30, 45, 55, 65, 75, 85, 90, 100];
+            const scoreThresholds = [1, 5, 11, 18, 25, 35, 47, 60, 75, 90];
 
             for (let i = 0; i < scoreThresholds.length; i++) {
                 if (score.value >= scoreThresholds[i]) {
@@ -136,7 +140,6 @@
         }
       
         snake.value = newSnake;
-
         const originalWidth = 60;
         const aspectRatio = fruit.width / originalWidth;
         let newWidth, newHeight;
@@ -172,6 +175,14 @@
                 i % 2 === 0
             );
         }
+        if (previousLevel !== level.value) {
+            // Level has changed, update the interval
+            if (gameInterval !== undefined) {
+                clearInterval(gameInterval);
+            }
+            gameInterval = setInterval(updateGame, intervalTime);
+            previousLevel = level.value;
+        }
     }};
 
     const placeNewApple = () => {
@@ -196,9 +207,8 @@
         snake.value = [[100,25], [106,85]];
         apple.value = [80, 50]; 
         direction.value = [ -1, 0 ];
-        gameInterval = setInterval(updateGame, 30);
+        gameInterval = setInterval(updateGame, intervalTime);
         gameRunning.value = true;
-        console.log('snake.value', snake.value, 'apple.value', apple.value)
     };
 
     const pauseGame = () => {
@@ -208,6 +218,8 @@
 
     const restartGame = () => {
         gamePaused.value = false;
-        gameInterval = setInterval(updateGame, 30);
+        gameInterval = setInterval(updateGame, intervalTime);
+        console.log(intervalTime);
     };
+
 </script>
