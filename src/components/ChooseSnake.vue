@@ -23,14 +23,25 @@
     const snakeCanvas = ref<HTMLCanvasElement | null>(null);
     const initialSnake = ref([[50,75], [45,85]]);
     const snake = ref(initialSnake);
-    const direction = ref([ -1, 0 ]);
     import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
+    import { drawBodyPart2 } from '../utils/drawSnakeBody2Utils';
 
     onMounted(() => {
         const context = snakeCanvas.value?.getContext('2d');
 
         if(context) {
-            drawSnakeHead2(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value);
+            drawSnakeHead2(context, snake.value[0][0], snake.value[0][1], 10.5);
+
+            for (let i = 1; i < snake.value.length; i++) {
+                const bodyPart = snake.value[i]; 
+
+                // Draw the body part
+                const distanceFactor = 10;
+                bodyPart[0] = snake.value[i][1] * distanceFactor;
+                bodyPart[1] = snake.value[i][0] * distanceFactor;
+
+                drawBodyPart2(context, bodyPart[0], bodyPart[1], i % 2 === 0);
+            }
         }
     });
-</script>
+</script>../utils/drawSnakeBody2Utils
