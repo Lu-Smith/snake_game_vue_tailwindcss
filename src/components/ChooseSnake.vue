@@ -21,7 +21,7 @@
     defineProps(['mode']);
 
     const snakeCanvas = ref<HTMLCanvasElement | null>(null);
-    const initialSnake = ref([[50,75], [45,85]]);
+    const initialSnake = ref([[50,75], [50,56]]);
     const snake = ref(initialSnake);
     import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
     import { drawBodyPart2 } from '../utils/drawSnakeBody2Utils';
@@ -36,12 +36,12 @@
                 const bodyPart = snake.value[i]; 
 
                 // Draw the body part
-                const distanceFactor = 10;
-                bodyPart[0] = snake.value[i][1] * distanceFactor;
-                bodyPart[1] = snake.value[i][0] * distanceFactor;
+                const distanceFactor = 1.16;
+                bodyPart[0] = snake.value[i][1] * i * distanceFactor;
+                bodyPart[1] = snake.value[i][0] * i * distanceFactor;
 
                 drawBodyPart2(context, bodyPart[0], bodyPart[1], i % 2 === 0);
             }
         }
     });
-</script>../utils/drawSnakeBody2Utils
+</script>

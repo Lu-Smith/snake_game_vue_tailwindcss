@@ -7,7 +7,7 @@ export function drawBodyPart2(
     context.save();
     context.translate(x, y);
     context.beginPath();
-    context.arc(0, 0, 4.5, 0, 2 * Math.PI, false);
+    context.arc(0, 0, 9, 0, 2 * Math.PI, false);
 
     if (isEven) {
         context.fillStyle = "#9896f1";
