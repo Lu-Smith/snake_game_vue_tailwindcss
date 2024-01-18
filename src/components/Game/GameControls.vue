@@ -2,15 +2,15 @@
   <div class="flex justify-between items-center">
     <div>
       <h2 
-      class="font-semibold text-red-600"
-      :class="mode ? 'text-red-600' : 'text-textColor'" >Level {{ level }}</h2>
+      class="font-semibold text-focusColor"
+      :class="mode ? 'text-focusColor' : 'text-textColor'" >Level {{ level }}</h2>
     </div>
     <div class="flex flex-row justify-center items-center gap-6">
       <button 
       @click="handleStartGame"
       v-if="!gameRunning"
       class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base transition-all duration-300 ease-in-out" 
-      :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200' : 'bg-red-600 text-textColor hover:bg-red-400'"
+      :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200' : 'bg-focusColor text-textColor hover:bg-red-400'"
       >Start</button>
       <button 
       @click="handlePauseGame" 

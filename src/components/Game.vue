@@ -9,7 +9,7 @@
     <div class="w-full h-full mt-4 flex justify-center items-center">
         <canvas
         :class="mode ? 'bg-red-100' : 'bg-slate-800'"
-        class="border-2 border-red-600"
+        class="border-2 border-focusColor"
         ref="gameCanvas"
         :style="{ height: canvasHeight, width: canvasWidth }"
         ></canvas>
@@ -35,7 +35,7 @@
 
     //score
     const score = ref<number>(0);
-    const level = ref<number>(0);
+    const level = ref<number>(1);
    
     //apple
     const initialApple = ref([80, 50]);
@@ -191,6 +191,7 @@
         gameInterval = undefined; 
         }
 
+        level.value = 1;
         score.value = 0;
         snake.value = [[100,25], [106,85]];
         apple.value = [80, 50]; 

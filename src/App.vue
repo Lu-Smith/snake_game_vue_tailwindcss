@@ -1,6 +1,6 @@
 <template>
   <div 
-  :class="mode ? 'bg-textColor' : 'bg-bgColor'"
+  :class="mode ? 'bg-gradient-to-t from-textColor to-linksColor' : 'bg-gradient-to-t from-addColor to-bgColor'"
   class="flex flex-col justify-center items-center gap-6 w-full h-full md:p-4 p-2 pt-4">
     <div class="w-full h-full">
       <Switch v-model:mode="mode" />
