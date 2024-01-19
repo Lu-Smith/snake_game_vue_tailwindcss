@@ -10,14 +10,14 @@ export function drawBodyPart1(
     context.arc(0, 0, 9, 0, 2 * Math.PI, false);
 
     if (isEven) {
-        context.fillStyle = "#9896f1";
+        context.fillStyle = "#a3d001";
     } else {
-        context.fillStyle = "#d59bf6";
+        context.fillStyle = "#0d9123";
     }
 
     context.fill();
     context.lineWidth = 1;
-    context.strokeStyle = "#8ef6e4";
+    context.strokeStyle = "#000";
     context.stroke();
 
     context.restore();

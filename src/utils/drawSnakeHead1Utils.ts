@@ -7,10 +7,10 @@ export function drawSnakeHead1(
   // Head
   context.beginPath();
   context.arc(x, y, radius, 0, 2 * Math.PI, false);
-  context.fillStyle = "#8ef6e4";
+  context.fillStyle = "#c1e205";
   context.fill();
   context.lineWidth = 1;
-  context.strokeStyle = '#8ef6e4';
+  context.strokeStyle = '#000';
   context.stroke();
 
   // Eyes
