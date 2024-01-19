@@ -1,4 +1,4 @@
-export function drawSnakeHead3(
+export function drawSnakeHead4(
     context: CanvasRenderingContext2D,
     x: number,
     y: number,
@@ -7,10 +7,10 @@ export function drawSnakeHead3(
   // Head
   context.beginPath();
   context.arc(x, y, radius, 0, 2 * Math.PI, false);
-  context.fillStyle = "#f1b963";
+  context.fillStyle = "#cbf078";
   context.fill();
   context.lineWidth = 1;
-  context.strokeStyle = "#e46161";
+  context.strokeStyle = "#cbf078";
   context.stroke();
 
   // Eyes

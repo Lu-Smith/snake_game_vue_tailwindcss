@@ -1,4 +1,4 @@
-export function drawBodyPart3(
+export function drawBodyPart4(
     context: CanvasRenderingContext2D,
     x: number,
     y: number,
@@ -12,12 +12,12 @@ export function drawBodyPart3(
     if (isEven) {
         context.fillStyle = "#f1b963";
     } else {
-        context.fillStyle = "#e46161";
+        context.fillStyle = "#cbf078";
     }
 
     context.fill();
     context.lineWidth = 1;
-    context.strokeStyle = "#e46161";
+    context.strokeStyle = "#cbf078";
     context.stroke();
 
     context.restore();
