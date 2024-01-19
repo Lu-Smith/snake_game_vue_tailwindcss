@@ -25,7 +25,9 @@
     import { drawSnakeHead } from '../utils/drawSnakeHeadUtils';
     import { drawBodyPart } from '../utils/drawSnakeBodyUtils';
 
-    defineProps(['mode', 'snakeNumberChoice']);
+    const props = defineProps(['mode', 'snakeNumberChoice']);
+
+    const snakeNumberChoice = ref<number>(props.snakeNumberChoice);
 
     //canvas
     const canvasWidth = ref<string>('100%');
@@ -158,7 +160,7 @@
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
 
         // Draw the snake
-        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value, snakeNumberChoice);
+        drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value, snakeNumberChoice.value);
         // Draw the snkaes'body
         for (let i = 1; i < snake.value.length; i++) {
             const bodyPart = snake.value[i]; 
