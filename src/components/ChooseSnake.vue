@@ -53,12 +53,11 @@ const snakeChoice = () => {
 };
 
 const nextSnake = () => {
-  if (snakeNumber.value <= 4) {
+  if (snakeNumber.value <= 3) {
     snakeNumber.value++;
   } else {
     snakeNumber.value = 1;
   }
-  console.log(snakeNumber.value);
   drawSnake();
 };
 
