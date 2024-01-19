@@ -7,11 +7,21 @@
             ref="snakeCanvas"
             ></canvas>
         </div>
-        <button
-        class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base 
-        transition-all duration-300 ease-in-out border-2" 
-        :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
-        : 'bg-bgColor text-textColor hover:bg-red-400 border-focusColor'">My Snake</button>
+        <div>
+            <button
+            class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base 
+            transition-all duration-300 ease-in-out border-2 mr-4" 
+            :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
+            : 'bg-bgColor text-textColor hover:bg-red-400 border-focusColor'">
+            My Snake</button>        
+            <button
+            class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base 
+            transition-all duration-300 ease-in-out border-2" 
+            :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
+            : 'bg-bgColor text-textColor hover:bg-red-400 border-focusColor'">
+            Next</button>
+        </div>
+       
     </div>  
 </template>
 
