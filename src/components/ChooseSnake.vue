@@ -38,8 +38,8 @@
   import { ref, onMounted } from 'vue';
   import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
   import { drawBodyPart2 } from '../utils/drawSnakeBody2Utils';
-  import { drawSnakeHead } from '../utils/drawSnakeHeadUtils';
-  import { drawBodyPart } from '../utils/drawSnakeBodyUtils';
+  import { drawSnakeHead1 } from '../utils/drawSnakeHead1Utils';
+  import { drawBodyPart1 } from '../utils/drawSnakeBody1Utils';
 
   defineProps(['mode']);
 
@@ -53,8 +53,8 @@
   }
 
   const nextSnake = () => {
-
-}
+    snakeNumber.value++;
+  }
 
   onMounted(() => {
     const context = snakeCanvas.value?.getContext('2d');
@@ -74,7 +74,7 @@
             drawBodyPart2(context, bodyPart[0], bodyPart[1], i % 2 === 0);
             }
         } else if(snakeNumber.value === 2) {
-            drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 10.5, direction.value);
+            drawSnakeHead1(context, snake.value[0][0], snake.value[0][1], 10.5);
 
             for (let i = 1; i < snake.value.length; i++) {
             const bodyPart = snake.value[i];
@@ -84,7 +84,7 @@
             bodyPart[0] = snake.value[i - 1][0] + direction.value[0] * distanceFactor;
             bodyPart[1] = snake.value[i - 1][1] + direction.value[1] * distanceFactor;
 
-            drawBodyPart(context, bodyPart[0], bodyPart[1], i % 2 === 0);
+            drawBodyPart1(context, bodyPart[0], bodyPart[1], i % 2 === 0);
             }
         }
 
