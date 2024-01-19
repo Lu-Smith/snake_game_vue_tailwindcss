@@ -43,7 +43,7 @@ import { drawBodyPart4 } from '../utils/drawSnakeBody4Utils';
 
 defineProps(['mode']);
 
-const emits = defineEmits(['snakeChoice']);
+const emits = defineEmits(['snakeChoice', 'snakeNumber']);
 
 const snakeNumber = ref(1);
 const snakeCanvas = ref<HTMLCanvasElement | null>(null);
@@ -56,6 +56,7 @@ const nextSnake = () => {
   } else {
     snakeNumber.value = 1;
   }
+  emits('snakeNumber', snakeNumber.value);
   drawSnake();
 };
 

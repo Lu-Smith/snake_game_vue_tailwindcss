@@ -9,13 +9,13 @@
       <Header :mode="mode"  />
     </div>
     <div v-if="!choiceMade">
-      <ChooseSnake :mode="mode" @snakeChoice="snakeChoice"/>
+      <ChooseSnake :mode="mode" @snakeChoice="snakeChoice" @snakeNumber="handleSnakeNumber"/>
     </div>
     <div 
     v-else
     :class="mode ? 'bg-linksColor' : 'bg-addColor'"
     class=" max-w-192 h-full pt-6 pb-0 mb-6 md:p-6 md:rounded-lg">
-      <Game :mode="mode" />
+      <Game :mode="mode" :snakeNumberChoice="snakeNumberChoice"/>
     </div>
   </div>
   <Footer :mode="mode" />
@@ -31,9 +31,17 @@ import ChooseSnake from './components/ChooseSnake.vue';
 
 const mode = ref(false);
 const choiceMade = ref(false);
+const snakeNumberChoice = ref(1);
+
+const handleSnakeNumber = (value: number) => {
+  console.log('Snake Number:', value);
+  snakeNumberChoice.value = value;
+};
 
 const snakeChoice = () => {
   choiceMade.value = true;
 };
+
+
 </script>
 
