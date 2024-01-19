@@ -161,25 +161,20 @@
         drawSnakeHead(context, snake.value[0][0], snake.value[0][1], 5.5, direction.value);
         // Draw the snkaes'body
         for (let i = 1; i < snake.value.length; i++) {
-        const bodyPart = snake.value[i]; 
+            const bodyPart = snake.value[i]; 
 
-        // Draw the body part
-        const distanceFactor = -5;
-        const newBodyPartX = bodyPart[0] + direction.value[0] * distanceFactor;
-        const newBodyPartY = bodyPart[1] + direction.value[1] * distanceFactor;
+            // Draw the body part
+            const distanceFactor = -5;
+            const newBodyPartX = bodyPart[0] + direction.value[0] * distanceFactor;
+            const newBodyPartY = bodyPart[1] + direction.value[1] * distanceFactor;
 
-        const canvasWidth = gameCanvas.value?.width || 0;
-        const canvasHeight = gameCanvas.value?.height || 0;
+            const canvasWidth = gameCanvas.value?.width || 0;
+            const canvasHeight = gameCanvas.value?.height || 0;
 
-        bodyPart[0] = Math.max(0, Math.min(newBodyPartX, canvasWidth));
-        bodyPart[1] = Math.max(0, Math.min(newBodyPartY, canvasHeight));
+            bodyPart[0] = Math.max(0, Math.min(newBodyPartX, canvasWidth));
+            bodyPart[1] = Math.max(0, Math.min(newBodyPartY, canvasHeight));
 
-            drawBodyPart(
-                context,
-                bodyPart[0],
-                bodyPart[1],
-                i % 2 === 0
-            );
+            drawBodyPart(context, bodyPart[0], bodyPart[1], i % 2 === 0);
         }
         if (previousLevel !== level.value) {
             // Level has changed, update the interval
