@@ -23,7 +23,7 @@
   defineProps(['mode']);
 
   const snakeCanvas = ref<HTMLCanvasElement | null>(null);
-  const snake = ref([[50, 75], [80, 56], [80, 37], [80, 18]]);
+  const snake = ref([[62, 75], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18]]);
   const direction = ref([1, 0]);
 
   onMounted(() => {
