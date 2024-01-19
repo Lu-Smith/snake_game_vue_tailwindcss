@@ -4,14 +4,32 @@ export function drawSnakeHead(
     y: number,
     radius: number,
     direction: number[],
+    snakeNumberChoice: number,
   ) {
   // Head
   context.beginPath();
   context.arc(x, y, radius, 0, 2 * Math.PI, false);
-  context.fillStyle = "#c1e205";
+  if (snakeNumberChoice === 1) {
+    context.fillStyle = "#c1e205";
+  } else if (snakeNumberChoice === 2) {
+    context.fillStyle = "#8ef6e4";
+  } else if (snakeNumberChoice === 3) {
+    context.fillStyle = "#f1b96";
+  } else {
+    context.fillStyle = "#cbf078";
+  } 
+
   context.fill();
   context.lineWidth = 1;
-  context.strokeStyle = '#000';
+  if (snakeNumberChoice === 1) {
+    context.strokeStyle = '#000';
+  } else if (snakeNumberChoice === 2) {
+    context.strokeStyle = '#8ef6e4';
+  } else if (snakeNumberChoice === 3) {
+    context.strokeStyle = '#e46161';
+  } else {
+    context.strokeStyle = '#cbf078';
+  } 
   context.stroke();
 
   // Eyes
