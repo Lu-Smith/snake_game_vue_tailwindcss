@@ -9,7 +9,7 @@
     </div>
     <div>
       <button
-        @click="snakeChoice"
+        @click="handleSnakeChoice"
         class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base 
             transition-all duration-300 ease-in-out border-2 mr-4"
         :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
@@ -43,14 +43,12 @@ import { drawBodyPart4 } from '../utils/drawSnakeBody4Utils';
 
 defineProps(['mode']);
 
+const emits = defineEmits(['snakeChoice']);
+
 const snakeNumber = ref(1);
 const snakeCanvas = ref<HTMLCanvasElement | null>(null);
 const snake = ref([[62, 75], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18]]);
 const direction = ref([1, 0]);
-
-const snakeChoice = () => {
-  // Implement snakeChoice logic if needed
-};
 
 const nextSnake = () => {
   if (snakeNumber.value <= 3) {
@@ -90,4 +88,8 @@ watchEffect(() => {
 onMounted(() => {
   drawSnake();
 });
+
+const handleSnakeChoice = () => {
+  emits('snakeChoice');
+};
 </script>

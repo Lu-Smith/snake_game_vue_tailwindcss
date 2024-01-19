@@ -9,7 +9,7 @@
       <Header :mode="mode"  />
     </div>
     <div v-if="!choiceMade">
-      <ChooseSnake :mode="mode" />
+      <ChooseSnake :mode="mode" @snakeChoice="snakeChoice"/>
     </div>
     <div 
     v-else
@@ -31,5 +31,9 @@ import ChooseSnake from './components/ChooseSnake.vue';
 
 const mode = ref(false);
 const choiceMade = ref(false);
+
+const snakeChoice = () => {
+  // Implement snakeChoice logic if needed
+};
 </script>
 
