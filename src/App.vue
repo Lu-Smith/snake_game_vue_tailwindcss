@@ -33,7 +33,7 @@ const mode = ref(false);
 const choiceMade = ref(false);
 
 const snakeChoice = () => {
-  // Implement snakeChoice logic if needed
+  choiceMade.value = true;
 };
 </script>
 
