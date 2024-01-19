@@ -2,6 +2,13 @@
     <div class="flex justify-center items-center flex-col gap-4">
         <div class="w-full h-full mt-4 flex justify-center items-center">
             <canvas
+            v-if="snakeNumber === 1"
+            :class="mode ? 'bg-red-100' : 'bg-slate-800'"
+            class="border-2 border-focusColor"
+            ref="snakeCanvas"
+            ></canvas>
+            <canvas
+            v-if="snakeNumber === 2"
             :class="mode ? 'bg-red-100' : 'bg-slate-800'"
             class="border-2 border-focusColor"
             ref="snakeCanvas"
@@ -9,12 +16,14 @@
         </div>
         <div>
             <button
+            @click="snakeChoice"
             class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base 
             transition-all duration-300 ease-in-out border-2 mr-4" 
             :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
             : 'bg-bgColor text-textColor hover:bg-red-400 border-focusColor'">
             My Snake</button>        
             <button
+            @click="nextSnake"
             class="px-4 py-2 font-semibold rounded-lg shadow-sm text-sm md:text-base 
             transition-all duration-300 ease-in-out border-2" 
             :class="mode ? 'bg-red-400 text-textColor hover:bg-red-200 border-focusColor' 
@@ -32,9 +41,18 @@
 
   defineProps(['mode']);
 
+  const snakeNumber = ref(1);
   const snakeCanvas = ref<HTMLCanvasElement | null>(null);
   const snake = ref([[62, 75], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18]]);
   const direction = ref([1, 0]);
+
+  const snakeChoice = () => {
+
+  }
+
+  const nextSnake = () => {
+
+}
 
   onMounted(() => {
     const context = snakeCanvas.value?.getContext('2d');
