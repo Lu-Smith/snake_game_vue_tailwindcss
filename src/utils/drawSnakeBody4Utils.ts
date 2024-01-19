@@ -12,7 +12,7 @@ export function drawBodyPart4(
     if (isEven) {
         context.fillStyle = "#f1b963";
     } else {
-        context.fillStyle = "#cbf078";
+        context.fillStyle = " #0092ca";
     }
 
     context.fill();
