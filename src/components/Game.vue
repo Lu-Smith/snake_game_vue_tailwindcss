@@ -117,11 +117,11 @@
         newSnake.unshift(newSnakeHead);
 
         const head = [
-            snake.value[0][0] + direction.value[0] - 10,
-            snake.value[0][1] + direction.value[1],
+            snake.value[0][0] + direction.value[0] - 7,
+            snake.value[0][1] + direction.value[1] - 5,
         ];
 
-        console.log(head[0]);
+        console.log(head[1]);
         console.log(apple.value);
 
         const distanceX = Math.abs(head[0] - apple.value[0]);
@@ -225,7 +225,6 @@
     const restartGame = () => {
         gamePaused.value = false;
         gameInterval = setInterval(updateGame, intervalTime);
-        console.log(intervalTime);
     };
 
 </script>
