@@ -14,11 +14,10 @@ export function drawSnakeHead(
   } else if (snakeNumberChoice === 2) {
     context.fillStyle = "#8ef6e4";
   } else if (snakeNumberChoice === 3) {
-    context.fillStyle = "#f1b96";
+    context.fillStyle = "#c7b198";
   } else {
-    context.fillStyle = "#cbf078";
+    context.fillStyle = "#c4c1e0";
   } 
-
   context.fill();
   context.lineWidth = 1;
   if (snakeNumberChoice === 1) {
