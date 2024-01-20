@@ -176,7 +176,7 @@
             bodyPart[0] = Math.max(0, Math.min(newBodyPartX, canvasWidth));
             bodyPart[1] = Math.max(0, Math.min(newBodyPartY, canvasHeight));
 
-            drawBodyPart(context, bodyPart[0], bodyPart[1], i % 2 === 0);
+            drawBodyPart(context, bodyPart[0], bodyPart[1], snakeNumberChoice.value, i % 2 === 0);
         }
         if (previousLevel !== level.value) {
             // Level has changed, update the interval
