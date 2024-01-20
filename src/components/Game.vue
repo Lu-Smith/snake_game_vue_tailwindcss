@@ -117,17 +117,17 @@
         newSnake.unshift(newSnakeHead);
 
         const head = [
-            snake.value[0][0] + direction.value[0] - 7,
+            snake.value[0][0] + direction.value[0] - 5,
             snake.value[0][1] + direction.value[1] - 5,
         ];
 
-        console.log(head[1]);
+        console.log(head[0]);
         console.log(apple.value);
 
         const distanceX = Math.abs(head[0] - apple.value[0]);
         const distanceY = Math.abs(head[1] - apple.value[1]);
 
-        if (distanceX <= 4 && distanceY <= 5) {
+        if (distanceX <= 5 && distanceY <= 5) {
             score.value++;
             snake.value.push([0, 0]);
             placeNewApple();
