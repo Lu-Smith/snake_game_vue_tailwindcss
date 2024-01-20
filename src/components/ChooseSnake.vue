@@ -32,14 +32,8 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, watchEffect } from 'vue';
-import { drawSnakeHead2 } from '../utils/drawSnakeHead2Utils';
-import { drawBodyPart2 } from '../utils/drawSnakeBody2Utils';
 import { drawSnakeHead1 } from '../utils/drawSnakeHead1Utils.ts';
 import { drawBodyPart1 } from '../utils/drawSnakeBody1Utils';
-import { drawSnakeHead3 } from '../utils/drawSnakeHead3Utils';
-import { drawBodyPart3 } from '../utils/drawSnakeBody3Utils';
-import { drawSnakeHead4 } from '../utils/drawSnakeHead4Utils';
-import { drawBodyPart4 } from '../utils/drawSnakeBody4Utils';
 
 defineProps(['mode']);
 
@@ -60,14 +54,11 @@ const nextSnake = () => {
   drawSnake();
 };
 
-const drawSnakeHeadFunctions = [drawSnakeHead1, drawSnakeHead2, drawSnakeHead3, drawSnakeHead4];
-const drawBodyPartFunctions = [drawBodyPart1, drawBodyPart2, drawBodyPart3, drawBodyPart4];
-
 const drawSnake = () => {
   const context = snakeCanvas.value?.getContext('2d');
 
   if (context && snakeNumber.value >= 1 && snakeNumber.value <= 4) {
-    drawSnakeHeadFunctions[snakeNumber.value - 1](context, snake.value[0][0], snake.value[0][1], 10.5);
+    drawSnakeHead1(context, snake.value[0][0], snake.value[0][1], 10.5, snakeNumber.value);
 
     for (let i = 1; i < snake.value.length; i++) {
       const bodyPart = snake.value[i];
@@ -77,7 +68,7 @@ const drawSnake = () => {
       bodyPart[0] = snake.value[i - 1][0] + direction.value[0] * distanceFactor;
       bodyPart[1] = snake.value[i - 1][1] + direction.value[1] * distanceFactor;
 
-      drawBodyPartFunctions[snakeNumber.value - 1](context, bodyPart[0], bodyPart[1], i % 2 === 0);
+      drawBodyPart1(context, bodyPart[0], bodyPart[1], snakeNumber.value, i % 2 === 0);
     }
   }
 };
