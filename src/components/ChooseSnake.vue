@@ -45,7 +45,7 @@ const snake = ref([[62, 75], [80, 56], [80, 37], [80, 18], [80, 37], [80, 18], [
 const direction = ref([1, 0]);
 
 const nextSnake = () => {
-  if (snakeNumber.value <= 5) {
+  if (snakeNumber.value <= 7) {
     snakeNumber.value++;
   } else {
     snakeNumber.value = 1;
@@ -57,7 +57,7 @@ const nextSnake = () => {
 const drawSnake = () => {
   const context = snakeCanvas.value?.getContext('2d');
 
-  if (context && snakeNumber.value >= 1 && snakeNumber.value <= 6) {
+  if (context && snakeNumber.value >= 1 && snakeNumber.value <= 8) {
     drawSnakeHead1(context, snake.value[0][0], snake.value[0][1], 10.5, snakeNumber.value);
 
     for (let i = 1; i < snake.value.length; i++) {
