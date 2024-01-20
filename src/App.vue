@@ -34,7 +34,6 @@ const choiceMade = ref(false);
 const snakeNumberChoice = ref(1);
 
 const handleSnakeNumber = (value: number) => {
-  console.log('Snake Number:', value);
   snakeNumberChoice.value = value;
 };
 
