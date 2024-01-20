@@ -17,6 +17,10 @@ export function drawBodyPart(
         context.fillStyle = "#8ef6e4";
         } else if (snakeNumberChoice === 3) {
         context.fillStyle = "#dde0ab";
+        } else if (snakeNumberChoice === 4) {
+        context.fillStyle = "#fdb44b";
+        } else if (snakeNumberChoice === 5) {
+        context.fillStyle = "#e46161";
         } else {
         context.fillStyle = "#8dc6ff";
         } 
@@ -26,6 +30,10 @@ export function drawBodyPart(
         } else if (snakeNumberChoice === 2) {
         context.fillStyle = "#fdb44b";
         } else if (snakeNumberChoice === 3) {
+        context.fillStyle = "#e46161";
+        } else if (snakeNumberChoice === 4) {
+        context.fillStyle = "#fdb44b";
+        } else if (snakeNumberChoice === 5) {
         context.fillStyle = "#e46161";
         } else {
         context.fillStyle = "#5dacbd";
@@ -39,6 +47,10 @@ export function drawBodyPart(
       } else if (snakeNumberChoice === 2) {
         context.strokeStyle = "#8ef6e4";
       } else if (snakeNumberChoice === 3) {
+        context.strokeStyle = "#e46161";
+      } else if (snakeNumberChoice === 4) {
+        context.strokeStyle = "#e46161";
+      } else if (snakeNumberChoice === 5) {
         context.strokeStyle = "#e46161";
       } else {
         context.strokeStyle = "#cbf078";
