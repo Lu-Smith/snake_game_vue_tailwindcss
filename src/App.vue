@@ -1,7 +1,7 @@
 <template>
   <div 
   :class="mode ? 'bg-gradient-to-t from-textColor to-linksColor' : 'bg-gradient-to-t from-addColor to-bgColor'"
-  class="flex flex-col justify-center items-center gap-6 w-full h-full md:p-4 p-2 pt-4">
+  class="flex flex-col justify-center items-center gap-6 w-full h-full md:p-4 pt-4">
     <div class="w-full h-full">
       <Switch v-model:mode="mode" />
     </div>
@@ -14,7 +14,7 @@
     <div 
     v-else
     :class="mode ? 'bg-linksColor' : 'bg-addColor'"
-    class=" max-w-192 h-full pt-6 pb-0 mb-6 md:p-6 md:rounded-lg">
+    class=" max-w-192 h-full p-6 mb-6 md:p-6 md:rounded-lg ">
       <Game :mode="mode" :snakeNumberChoice="snakeNumberChoice"/>
     </div>
   </div>

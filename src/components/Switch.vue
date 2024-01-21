@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center mr-2 ml-2">
       <div 
       @click="toggleMode" 
       :class="mode ? 'text-textColor border-textColor' : 'text-focusColor border-addColor'"
