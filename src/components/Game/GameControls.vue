@@ -2,7 +2,7 @@
   <div class="flex justify-between items-center">
     <div>
       <h2 
-      class="font-semibold text-focusColor"
+      class="font-semibold text-focusColor md:text-base text-sm"
       :class="mode ? 'text-focusColor' : 'text-textColor'" >Level {{ level }} - 
       <span v-if="level === 1 || level === 2" class="text-textColor">Crawling Speed</span>
       <span v-if="level === 3 || level === 4" class="text-textColor">Turtle Speed</span>
