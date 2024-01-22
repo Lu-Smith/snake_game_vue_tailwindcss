@@ -1,7 +1,7 @@
 <template>
     <h3 
     :class="mode ? 'text-addColor border-linksColor bg-red-200' : 'text-textColor border-addColor bg-bgColor'"
-    class="text-sm p-2 font-semibold text-center border-t-2 fixed bottom-0 w-full">
+    class="md:text-sm text-xs p-2 font-semibold text-center border-t-2 fixed bottom-0 w-full">
         Coded by 
         <a 
         href="https://www.lunasmithart.com/"
