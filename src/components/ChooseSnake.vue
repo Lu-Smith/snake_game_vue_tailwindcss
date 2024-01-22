@@ -2,7 +2,7 @@
   <div class="flex justify-center items-center flex-col gap-4 mb-40">
     <div class="w-full h-full mt-4 flex justify-center items-center">
       <canvas
-        :class="mode ? 'bg-red-100' : 'bg-slate-800'"
+        :class="mode ? 'bg-orange-100' : 'bg-slate-800'"
         class="border-2 border-focusColor"
         ref="snakeCanvas"
       ></canvas>
