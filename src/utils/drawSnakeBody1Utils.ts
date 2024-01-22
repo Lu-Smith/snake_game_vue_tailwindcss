@@ -24,9 +24,9 @@ export function drawBodyPart1(
         } else if (snakeNumberChoice === 6) {
           context.fillStyle = "#118a7e";
         } else if (snakeNumberChoice === 7) {
-          context.fillStyle = "#7dd87d";
+          context.fillStyle = "#f5c7f7";
         } else if (snakeNumberChoice === 8) {
-          context.fillStyle = "#e46161";
+          context.fillStyle = "#6643b5";
         } else if (snakeNumberChoice === 9) {
           context.fillStyle = "#118a7e";
         } else if (snakeNumberChoice === 10) {
@@ -48,11 +48,11 @@ export function drawBodyPart1(
         } else if (snakeNumberChoice === 6) {
           context.fillStyle = "#fdb44b";
         } else if (snakeNumberChoice === 7) {
-          context.fillStyle = "#7dd87d";
+          context.fillStyle = "#6643b5";
         } else if (snakeNumberChoice === 8) {
-          context.fillStyle = "#e46161";
+          context.fillStyle = "#93e4c1";
         } else if (snakeNumberChoice === 9) {
-          context.fillStyle = "#118a7e";
+          context.fillStyle = "#222831";
         } else if (snakeNumberChoice === 10) {
           context.fillStyle = "#7dd87d";
         } else {
@@ -71,15 +71,23 @@ export function drawBodyPart1(
       } else if (snakeNumberChoice === 4) {
         context.strokeStyle = "#e46161";
       } else if (snakeNumberChoice === 5) {
-        context.strokeStyle = "#393e46";
+        if (isEven) {
+          context.strokeStyle = "#e46161";
+        } else {
+          context.strokeStyle = "#393e46";
+        }
       } else if (snakeNumberChoice === 6) {
-        context.strokeStyle = '#e46161';
+        if (isEven) {
+          context.strokeStyle = "#118a7e";
+        } else {
+          context.strokeStyle = "#fdb44b";
+        }
       } else if (snakeNumberChoice === 7) {
-        context.strokeStyle = '#3baea0';
+        context.strokeStyle = '#430f58';
       } else if (snakeNumberChoice === 8) {
         context.strokeStyle = '#3baea0';
       } else if (snakeNumberChoice === 9) {
-        context.strokeStyle = '#3baea0';
+        context.strokeStyle = '#93e4c1';
       } else if (snakeNumberChoice === 10) {
         context.strokeStyle = '#3baea0';
       } else {
