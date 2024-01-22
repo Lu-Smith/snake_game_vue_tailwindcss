@@ -6,18 +6,17 @@
         <a 
         href="https://www.lunasmithart.com/"
         target="_blank"
-        :class="mode ? 'border-focusColor' : 'border-focusColor'"
-        class="text-focusColor border-b-2
+        :class="mode ? 'border-focusColor hover:bg-textColor text-addColor' : 'border-focusColor hover:bg-addColor text-focusColor'"
+        class=" border-b-2
         hover:border-none  transition-all duration-300 ease-in-out 
         hover:bg-addColor underline-offset-4 hover:underline-offset-8 rounded hover:p-2">
         Luna Smith</a> -
         <a 
         href="https://github.com/Lu-Smith/snake_game_vue_tailwindcss" 
         target="_blank"
-        :class="mode ? 'border-focusColor' : 'border-focusColor'"
-        class="text-focusColor border-b-2 
-        hover:border-none  transition-all duration-300 ease-in-out 
-        hover:bg-addColor underline-offset-4 hover:underline-offset-8 rounded hover:p-2">
+        :class="mode ? 'border-focusColor hover:bg-textColor text-addColor' : 'border-focusColor hover:bg-addColor text-focusColor'"
+        class="border-b-2 hover:border-none  transition-all duration-300 ease-in-out 
+         underline-offset-4 hover:underline-offset-8 rounded hover:p-2">
         GitHub</a>.
     </h3>
 </template>
