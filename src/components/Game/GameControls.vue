@@ -3,13 +3,17 @@
     <div>
       <h2 
       class="font-semibold text-focusColor md:text-base text-sm"
-      :class="mode ? 'text-focusColor' : 'text-textColor'" >Level {{ level }} - 
-      <span v-if="level === 1 || level === 2" class="text-textColor">Crawling Speed</span>
-      <span v-if="level === 3 || level === 4" class="text-textColor">Turtle Speed</span>
-      <span v-if="level === 5 || level === 6" class="text-textColor">Walking Speed</span>
-      <span v-if="level === 7" class="text-textColor">Jogging Speed</span>
-      <span v-if="level === 8" class="text-textColor">Cheetah Speed</span>
-      <span v-if="level === 9" class="text-focusColor">Flash Speed</span>
+      :class="mode ? 'text-slate-900' : 'text-textColor'" >Level {{ level }} - 
+      <span v-if="level === 1 || level === 2" class="text-textColor font-bold">Snail Speed</span>
+      <span v-if="level === 1 || level === 2" class="text-textColor font-bold">Swift Sloth</span>
+      <span v-if="level === 3" class="text-textColor font-bold">Turtle Speed</span>
+      <span v-if="level === 4" class="text-textColor font-bold">Walking Speed</span>
+      <span v-if="level === 5" class="text-textColor font-bold">Jogging Speed</span>
+      <span v-if="level === 6" class="text-textColor font-bold">Speedy Snicker</span>
+      <span v-if="level === 7" class="text-textColor font-bold">Fox Speed</span>
+      <span v-if="level === 8" class="text-textColor font-bold">Cheetah Speed</span>
+      <span v-if="level === 9" class="text-focusColor font-bold">Lighting Speed</span>
+      <span v-if="level === 10" class="text-focusColor font-bold">You are Flash</span>
     </h2>
     </div>
     <div class="flex flex-row justify-center items-center gap-6">
