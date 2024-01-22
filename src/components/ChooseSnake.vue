@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center flex-col gap-4">
+  <div class="flex justify-center items-center flex-col gap-4 mb-40">
     <div class="w-full h-full mt-4 flex justify-center items-center">
       <canvas
         :class="mode ? 'bg-red-100' : 'bg-slate-800'"
