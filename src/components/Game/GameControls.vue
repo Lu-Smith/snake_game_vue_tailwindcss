@@ -4,8 +4,8 @@
       <h2 
       class="font-semibold text-focusColor md:text-base text-sm"
       :class="mode ? 'text-slate-900' : 'text-textColor'" >Level {{ level }} - 
-      <span v-if="level === 1 || level === 2" class="text-textColor font-bold">Snail Speed</span>
-      <span v-if="level === 1 || level === 2" class="text-textColor font-bold">Swift Sloth</span>
+      <span v-if="level === 1" class="text-textColor font-bold">Snail Speed</span>
+      <span v-if="level === 2" class="text-textColor font-bold">Swift Sloth</span>
       <span v-if="level === 3" class="text-textColor font-bold">Turtle Speed</span>
       <span v-if="level === 4" class="text-textColor font-bold">Walking Speed</span>
       <span v-if="level === 5" class="text-textColor font-bold">Jogging Speed</span>
