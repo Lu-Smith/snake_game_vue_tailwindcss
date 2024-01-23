@@ -103,7 +103,7 @@
 
             if (mouseX > 0 && mouseX < 150 && mouseY > 60 && mouseY < 385) {
                 direction.value =[-1, 0 ]
-            } else if (mouseX < 890 && mouseX > 740 && mouseY > 60 && mouseY < 385) {
+            } else if (mouseX < (canvasRect.right - canvasRect.left) && mouseX > (canvasRect.right - canvasRect.left - 150) && mouseY > 60 && mouseY < 385) {
             direction.value =[ 1, 0 ]
             } else if (mouseX > 285 && mouseX < 610 && mouseY > 0 && mouseY < 120) {
                 direction.value =[ 0, -1 ]
@@ -112,7 +112,8 @@
             } 
             console.log('x', mouseX)
             console.log('y', mouseY)
-            console.log('canvasW', canvasRect.left)
+            console.log('canvasR', canvasRect.right);
+            console.log('canvasL', canvasRect.left);
         }
     };
 
