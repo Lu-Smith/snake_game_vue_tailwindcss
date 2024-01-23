@@ -101,13 +101,13 @@
             const mouseX = event.clientX - canvasRect.left;
             const mouseY = event.clientY - canvasRect.top;  
 
-            if (mouseX > 0 && mouseX < 150 && mouseY > 62 && mouseY < 384) {
+            if (mouseX > 0 && mouseX < 150 && mouseY > 60 && mouseY < 385) {
                 direction.value =[-1, 0 ]
-            } else if (mouseX < 890 && mouseX > 747 && mouseY > 60 && mouseY < 385) {
+            } else if (mouseX < 890 && mouseX > 740 && mouseY > 60 && mouseY < 385) {
             direction.value =[ 1, 0 ]
-            } else if (mouseX > gameCanvas.value.width/2-55 && mouseX < 110 && mouseY > 0 && mouseY < 40) {
+            } else if (mouseX > 285 && mouseX < 610 && mouseY > 0 && mouseY < 120) {
                 direction.value =[ 0, -1 ]
-            } else if (mouseX > gameCanvas.value.width/2-55 && mouseX < 110 && mouseY > gameCanvas.value.height-40 && mouseY < 40) {
+            } else if (mouseX > 285 && mouseX < 610 && mouseY > 315 && mouseY < 445) {
                 direction.value =[ 0, 1 ]
             } 
             console.log('x', mouseX)
