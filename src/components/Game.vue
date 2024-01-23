@@ -101,9 +101,17 @@
             const mouseX = event.clientX - canvasRect.left;
             const mouseY = event.clientY - canvasRect.top;  
 
-            if (mouseX > 0 && mouseX < 150 && mouseY > 60 && mouseY < 385) {
+            if (
+            mouseX > 0 
+            && mouseX < 150 
+            && mouseY > (canvasRect.bottom - canvasRect.top - 390) 
+            && mouseY < 390) {
                 direction.value =[-1, 0 ]
-            } else if (mouseX < (canvasRect.right - canvasRect.left) && mouseX > (canvasRect.right - canvasRect.left - 150) && mouseY > 60 && mouseY < 385) {
+            } else if (
+            mouseX < (canvasRect.right - canvasRect.left) 
+            && mouseX > (canvasRect.right - canvasRect.left - 150) 
+            && mouseY > (canvasRect.bottom - canvasRect.top - 390) 
+            && mouseY < 390) {
             direction.value =[ 1, 0 ]
             } else if (mouseX > 285 && mouseX < 610 && mouseY > 0 && mouseY < 120) {
                 direction.value =[ 0, -1 ]
@@ -112,8 +120,8 @@
             } 
             console.log('x', mouseX)
             console.log('y', mouseY)
-            console.log('canvasR', canvasRect.right);
-            console.log('canvasL', canvasRect.left);
+            console.log('canvasT', canvasRect.top);
+            console.log('canvasB', canvasRect.bottom);
         }
     };
 
