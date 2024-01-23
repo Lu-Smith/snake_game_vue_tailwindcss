@@ -103,15 +103,15 @@
 
             if (
             mouseX > 0 
-            && mouseX < 150 
-            && mouseY > (canvasRect.bottom - canvasRect.top - 390) 
-            && mouseY < 390) {
+            && mouseX < (canvasRect.right - canvasRect.left)*0.1674
+            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.8667) 
+            && mouseY < (canvasRect.bottom - canvasRect.top)*0.8667) {
                 direction.value =[-1, 0 ]
             } else if (
             mouseX < (canvasRect.right - canvasRect.left) 
-            && mouseX > (canvasRect.right - canvasRect.left - 150) 
-            && mouseY > (canvasRect.bottom - canvasRect.top - 390) 
-            && mouseY < 390) {
+            && mouseX > (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.1674) 
+            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.8667) 
+            && mouseY < (canvasRect.bottom - canvasRect.top)*0.8667) {
             direction.value =[ 1, 0 ]
             } else if (
             mouseX > 285 
@@ -122,14 +122,13 @@
             } else if (
             mouseX > 285 
             && mouseX < (canvasRect.right - canvasRect.left - 285)  
-            && mouseY > (canvasRect.bottom - canvasRect.top -120) 
+            && mouseY > (canvasRect.bottom - canvasRect.top - 120) 
             && mouseY < (canvasRect.bottom - canvasRect.top) ) {
                 direction.value =[ 0, 1 ]
             } 
-            console.log('x', mouseX)
-            console.log('y', mouseY)
-            console.log('canvasT', canvasRect.top);
-            console.log('canvasB', canvasRect.right - canvasRect.left);
+
+            console.log('canvasP1', 150/(canvasRect.right - canvasRect.left));
+            console.log('canvasP2', 390/(canvasRect.bottom - canvasRect.top));
         }
     };
 
