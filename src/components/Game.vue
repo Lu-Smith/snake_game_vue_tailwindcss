@@ -114,21 +114,21 @@
             && mouseY < (canvasRect.bottom - canvasRect.top)*0.8667) {
             direction.value =[ 1, 0 ]
             } else if (
-            mouseX > 285 
-            && mouseX < (canvasRect.right - canvasRect.left - 285) 
+            mouseX > (canvasRect.right - canvasRect.left)*0.3181 
+            && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181) 
             && mouseY > 0 
-            && mouseY < 120) {
+            && mouseY < (canvasRect.bottom - canvasRect.top)*0.2667) {
                 direction.value =[ 0, -1 ]
             } else if (
-            mouseX > 285 
-            && mouseX < (canvasRect.right - canvasRect.left - 285)  
-            && mouseY > (canvasRect.bottom - canvasRect.top - 120) 
+            mouseX > (canvasRect.right - canvasRect.left)*0.3181 
+            && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181)  
+            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.2667) 
             && mouseY < (canvasRect.bottom - canvasRect.top) ) {
                 direction.value =[ 0, 1 ]
             } 
 
-            console.log('canvasP1', 150/(canvasRect.right - canvasRect.left));
-            console.log('canvasP2', 390/(canvasRect.bottom - canvasRect.top));
+            console.log('canvasP1', 285/(canvasRect.right - canvasRect.left));
+            console.log('canvasP2', 120/(canvasRect.bottom - canvasRect.top));
         }
     };
 
