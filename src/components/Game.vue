@@ -24,6 +24,7 @@
     import Score from './Game/Score.vue';
     import { drawSnakeHead } from '../utils/drawSnakeHeadUtils';
     import { drawBodyPart } from '../utils/drawSnakeBodyUtils';
+    import { drawMouseEventCanvas} from '../utils/drawMouseEventCanvasUtils';
 
     const props = defineProps(['mode', 'snakeNumberChoice']);
 
@@ -72,13 +73,14 @@
         });
 
         window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener("mousedown", handleMouseDown);
     });
 
     //game logic
     const handleKeyDown = (event: KeyboardEvent) => {
         switch (event.key) {
 			case "ArrowLeft":
-				direction.value =[ -1, 0 ]
+				direction.value =[-1, 0 ]
 				break
 			case "ArrowUp":
 				direction.value =[ 0, -1 ]
@@ -90,6 +92,11 @@
 				direction.value =[ 0, 1 ]
 				break
 		}
+    };
+
+    const handleMouseDown = (event: MouseEvent) => {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;  
     };
 
     const updateGame = () => {
@@ -120,9 +127,6 @@
             snake.value[0][0] + direction.value[0] - 5,
             snake.value[0][1] + direction.value[1] - 5,
         ];
-
-        console.log(head[0]);
-        console.log(apple.value);
 
         const distanceX = Math.abs(head[0] - apple.value[0]);
         const distanceY = Math.abs(head[1] - apple.value[1]);
@@ -158,6 +162,12 @@
 
         // Clear the canvas
         context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
+
+        //canvas mouseEvent fields
+        drawMouseEventCanvas(context, 0, 20, 50, 110);
+        drawMouseEventCanvas(context, gameCanvas.value.width-50, 20, 50, 110);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 40);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-40, 110, 40);
   
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
