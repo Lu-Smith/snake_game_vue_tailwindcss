@@ -95,8 +95,24 @@
     };
 
     const handleMouseDown = (event: MouseEvent) => {
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;  
+        const canvasRect = gameCanvas.value?.getBoundingClientRect();
+
+        if(gameCanvas.value && canvasRect) {
+            const mouseX = event.clientX - canvasRect.left;
+            const mouseY = event.clientY - canvasRect.top;  
+
+            if (mouseX > 0 && mouseX < 50 && mouseY > 20 && mouseY < 110) {
+                direction.value =[-1, 0 ]
+            } else if (mouseX > gameCanvas.value.width-50 && mouseX < 50 && mouseY > 20 && mouseY < 110) {
+            direction.value =[ 1, 0 ]
+            } else if (mouseX > gameCanvas.value.width/2-55 && mouseX < 110 && mouseY > 0 && mouseY < 40) {
+                direction.value =[ 0, -1 ]
+            } else if (mouseX > gameCanvas.value.width/2-55 && mouseX < 110 && mouseY > gameCanvas.value.height-40 && mouseY < 40) {
+                direction.value =[ 0, 1 ]
+            } 
+            console.log('x', mouseX)
+            console.log('y', mouseY)
+        }
     };
 
     const updateGame = () => {
@@ -168,6 +184,8 @@
         drawMouseEventCanvas(context, gameCanvas.value.width-50, 20, 50, 110);
         drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 40);
         drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-40, 110, 40);
+
+
   
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
