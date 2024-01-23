@@ -113,15 +113,23 @@
             && mouseY > (canvasRect.bottom - canvasRect.top - 390) 
             && mouseY < 390) {
             direction.value =[ 1, 0 ]
-            } else if (mouseX > 285 && mouseX < 610 && mouseY > 0 && mouseY < 120) {
+            } else if (
+            mouseX > 285 
+            && mouseX < (canvasRect.right - canvasRect.left - 285) 
+            && mouseY > 0 
+            && mouseY < 120) {
                 direction.value =[ 0, -1 ]
-            } else if (mouseX > 285 && mouseX < 610 && mouseY > 315 && mouseY < 445) {
+            } else if (
+            mouseX > 285 
+            && mouseX < (canvasRect.right - canvasRect.left - 285)  
+            && mouseY > (canvasRect.bottom - canvasRect.top -120) 
+            && mouseY < (canvasRect.bottom - canvasRect.top) ) {
                 direction.value =[ 0, 1 ]
             } 
             console.log('x', mouseX)
             console.log('y', mouseY)
             console.log('canvasT', canvasRect.top);
-            console.log('canvasB', canvasRect.bottom);
+            console.log('canvasB', canvasRect.right - canvasRect.left);
         }
     };
 
