@@ -14,7 +14,7 @@
     <div 
     v-else
     :class="mode ? 'bg-linksColor' : 'bg-addColor'"
-    class=" max-w-192 h-full p-6 mb-6 md:p-6 md:rounded-lg ">
+    class=" max-w-192 h-full pt-4 pb-4 mb-6 md:p-6 md:rounded-lg ">
       <Game :mode="mode" :snakeNumberChoice="snakeNumberChoice"/>
     </div>
   </div>

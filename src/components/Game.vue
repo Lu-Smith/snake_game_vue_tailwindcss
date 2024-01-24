@@ -100,7 +100,7 @@
             colorUp.value = '#41506b';
             colorDown.value = '#41506b';
         }
-        
+
         switch (event.key) {
 			case "ArrowLeft":
 				direction.value =[-1, 0 ];
