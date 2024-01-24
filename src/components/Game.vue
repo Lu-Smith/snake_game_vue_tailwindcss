@@ -103,32 +103,29 @@
 
             if (
             mouseX > 0 
-            && mouseX < (canvasRect.right - canvasRect.left)*0.1674
-            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.8667) 
-            && mouseY < (canvasRect.bottom - canvasRect.top)*0.8667) {
+            && mouseX < (canvasRect.right - canvasRect.left)*0.268
+            && mouseY > 0
+            && mouseY < canvasRect.bottom) {
                 direction.value =[-1, 0 ]
             } else if (
             mouseX < (canvasRect.right - canvasRect.left) 
-            && mouseX > (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.1674) 
-            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.8667) 
-            && mouseY < (canvasRect.bottom - canvasRect.top)*0.8667) {
+            && mouseX > (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.268) 
+            && mouseY > 0 
+            && mouseY < canvasRect.bottom) {
             direction.value =[ 1, 0 ]
             } else if (
             mouseX > (canvasRect.right - canvasRect.left)*0.3181 
             && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181) 
             && mouseY > 0 
-            && mouseY < (canvasRect.bottom - canvasRect.top)*0.2667) {
+            && mouseY < (canvasRect.bottom - canvasRect.top)*0.41) {
                 direction.value =[ 0, -1 ]
             } else if (
             mouseX > (canvasRect.right - canvasRect.left)*0.3181 
             && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181)  
-            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.2667) 
+            && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.41) 
             && mouseY < (canvasRect.bottom - canvasRect.top) ) {
                 direction.value =[ 0, 1 ]
             } 
-
-            console.log('canvasP1', 285/(canvasRect.right - canvasRect.left));
-            console.log('canvasP2', 120/(canvasRect.bottom - canvasRect.top));
         }
     };
 
@@ -197,13 +194,11 @@
         context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
 
         //canvas mouseEvent fields
-        drawMouseEventCanvas(context, 0, 20, 50, 110);
-        drawMouseEventCanvas(context, gameCanvas.value.width-50, 20, 50, 110);
-        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 40);
-        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-40, 110, 40);
+        drawMouseEventCanvas(context, 0, 0, 80, gameCanvas.value.height);
+        drawMouseEventCanvas(context, gameCanvas.value.width-80, 0, 80, gameCanvas.value.height);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 60);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-60, 110, 60);
 
-
-  
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
 
