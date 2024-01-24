@@ -106,25 +106,25 @@
             && mouseX < (canvasRect.right - canvasRect.left)*0.268
             && mouseY > 0
             && mouseY < canvasRect.bottom) {
-                direction.value =[-1, 0 ]
+                direction.value = [-1, 0 ];
             } else if (
             mouseX < (canvasRect.right - canvasRect.left) 
             && mouseX > (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.268) 
             && mouseY > 0 
             && mouseY < canvasRect.bottom) {
-            direction.value =[ 1, 0 ]
+                direction.value =[ 1, 0 ];
             } else if (
             mouseX > (canvasRect.right - canvasRect.left)*0.3181 
             && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181) 
             && mouseY > 0 
             && mouseY < (canvasRect.bottom - canvasRect.top)*0.41) {
-                direction.value =[ 0, -1 ]
+                direction.value =[ 0, -1 ];
             } else if (
             mouseX > (canvasRect.right - canvasRect.left)*0.3181 
             && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181)  
             && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.41) 
             && mouseY < (canvasRect.bottom - canvasRect.top) ) {
-                direction.value =[ 0, 1 ]
+                direction.value =[ 0, 1 ];
             } 
         }
     };
@@ -194,10 +194,10 @@
         context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
 
         //canvas mouseEvent fields
-        drawMouseEventCanvas(context, 0, 0, 80, gameCanvas.value.height);
-        drawMouseEventCanvas(context, gameCanvas.value.width-80, 0, 80, gameCanvas.value.height);
-        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 60);
-        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-60, 110, 60);
+        drawMouseEventCanvas(context, 0, 0, 80, gameCanvas.value.height, direction.value);
+        drawMouseEventCanvas(context, gameCanvas.value.width-80, 0, 80, gameCanvas.value.height, direction.value);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 60, direction.value);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-60, 110, 60, direction.value);
 
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
