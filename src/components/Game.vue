@@ -57,6 +57,12 @@
     let gameInterval: undefined | number;
     let intervalTime: number = 30;
     let previousLevel:number = 1;
+    const color = ref('#a7bcb9');
+    const colorOn = ref('#ff7e67');
+    const colorLeft = ref('#ff7e67');
+    const colorRight = ref('#ff7e67');
+    const colorUp = ref('#ff7e67');
+    const colorDown = ref('#ff7e67');
 
     onMounted(() => {
         fruit.onload = () => {
@@ -80,16 +86,32 @@
     const handleKeyDown = (event: KeyboardEvent) => {
         switch (event.key) {
 			case "ArrowLeft":
-				direction.value =[-1, 0 ]
+				direction.value =[-1, 0 ];
+                colorLeft.value = colorOn.value;
+                colorRight.value = color.value;
+                colorDown.value = color.value;
+                colorUp.value = color.value;
 				break
 			case "ArrowUp":
-				direction.value =[ 0, -1 ]
+				direction.value =[ 0, -1 ];
+                colorLeft.value = color.value;
+                colorUp.value = colorOn.value;
+                colorRight.value = color.value;
+                colorDown.value = color.value;
 				break
 			case "ArrowRight":
-				direction.value =[ 1, 0 ]
+				direction.value =[ 1, 0 ];
+                colorLeft.value = color.value;
+                colorRight.value = colorOn.value;
+                colorUp.value = color.value;
+                colorDown.value = color.value;
 				break
 			case "ArrowDown":
-				direction.value =[ 0, 1 ]
+				direction.value =[ 0, 1 ];
+                colorLeft.value = color.value;
+                colorDown.value = colorOn.value;
+                colorUp.value = color.value;
+                colorRight.value = color.value;
 				break
 		}
     };
@@ -194,10 +216,10 @@
         context.clearRect(0, 0, gameCanvas.value.width, gameCanvas.value.height);
 
         //canvas mouseEvent fields
-        drawMouseEventCanvas(context, 0, 0, 80, gameCanvas.value.height, direction.value);
-        drawMouseEventCanvas(context, gameCanvas.value.width-80, 0, 80, gameCanvas.value.height, direction.value);
-        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 60, direction.value);
-        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-60, 110, 60, direction.value);
+        drawMouseEventCanvas(context, 0, 0, 80, gameCanvas.value.height, colorLeft.value);
+        drawMouseEventCanvas(context, gameCanvas.value.width-80, 0, 80, gameCanvas.value.height, colorRight.value);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, 0, 110, 60, colorUp.value);
+        drawMouseEventCanvas(context, gameCanvas.value.width/2-55, gameCanvas.value.height-60, 110, 60, colorDown.value);
 
         // Draw the apple
         context.drawImage(fruit, apple.value[0], apple.value[1], newWidth, newHeight);
