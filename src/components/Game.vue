@@ -57,12 +57,12 @@
     let gameInterval: undefined | number;
     let intervalTime: number = 30;
     let previousLevel:number = 1;
-    const color = ref('#a7bcb9');
-    const colorOn = ref('#ff7e67');
-    const colorLeft = ref('#ff7e67');
-    const colorRight = ref('#ff7e67');
-    const colorUp = ref('#ff7e67');
-    const colorDown = ref('#ff7e67');
+    const color = ref('#41506b');
+    const colorOn = ref('#4c9173');
+    const colorLeft = ref('#41506b');
+    const colorRight = ref('#41506b');
+    const colorUp = ref('#41506b');
+    const colorDown = ref('#41506b');
 
     onMounted(() => {
         fruit.onload = () => {
@@ -129,24 +129,40 @@
             && mouseY > 0
             && mouseY < canvasRect.bottom) {
                 direction.value = [-1, 0 ];
+                colorLeft.value = colorOn.value;
+                colorRight.value = color.value;
+                colorDown.value = color.value;
+                colorUp.value = color.value;
             } else if (
             mouseX < (canvasRect.right - canvasRect.left) 
             && mouseX > (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.268) 
             && mouseY > 0 
             && mouseY < canvasRect.bottom) {
                 direction.value =[ 1, 0 ];
+                colorLeft.value = color.value;
+                colorRight.value = colorOn.value;
+                colorUp.value = color.value;
+                colorDown.value = color.value;
             } else if (
             mouseX > (canvasRect.right - canvasRect.left)*0.3181 
             && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181) 
             && mouseY > 0 
             && mouseY < (canvasRect.bottom - canvasRect.top)*0.41) {
                 direction.value =[ 0, -1 ];
+                colorLeft.value = color.value;
+                colorUp.value = colorOn.value;
+                colorRight.value = color.value;
+                colorDown.value = color.value;
             } else if (
             mouseX > (canvasRect.right - canvasRect.left)*0.3181 
             && mouseX < (canvasRect.right - canvasRect.left - (canvasRect.right - canvasRect.left)*0.3181)  
             && mouseY > (canvasRect.bottom - canvasRect.top - (canvasRect.bottom - canvasRect.top)*0.41) 
             && mouseY < (canvasRect.bottom - canvasRect.top) ) {
                 direction.value =[ 0, 1 ];
+                colorLeft.value = color.value;
+                colorDown.value = colorOn.value;
+                colorUp.value = color.value;
+                colorRight.value = color.value;
             } 
         }
     };
@@ -265,6 +281,22 @@
     };
 
     const startGame = () => {
+        if (props.mode) {
+        color.value = '#ffd3b6';
+        colorOn.value = '#f1b963';
+        colorLeft.value = '#ffd3b6';
+        colorRight.value = '#ffd3b6';
+        colorUp.value = '#ffd3b6';
+        colorDown.value = '#ffd3b6';
+        } else {
+            color.value = '#41506b';
+            colorOn.value = '#4c9173';
+            colorLeft.value = '#41506b';
+            colorRight.value = '#41506b';
+            colorUp.value = '#41506b';
+            colorDown.value = '#41506b';
+        }
+
         if (gameInterval !== undefined) {
         clearInterval(gameInterval);
         gameInterval = undefined; 
