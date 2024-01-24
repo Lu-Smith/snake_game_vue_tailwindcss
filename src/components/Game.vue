@@ -84,6 +84,23 @@
 
     //game logic
     const handleKeyDown = (event: KeyboardEvent) => {
+
+        if (props.mode) {
+        color.value = '#ffd3b6';
+        colorOn.value = '#f1b963';
+        colorLeft.value = '#ffd3b6';
+        colorRight.value = '#ffd3b6';
+        colorUp.value = '#ffd3b6';
+        colorDown.value = '#ffd3b6';
+        } else {
+            color.value = '#41506b';
+            colorOn.value = '#4c9173';
+            colorLeft.value = '#41506b';
+            colorRight.value = '#41506b';
+            colorUp.value = '#41506b';
+            colorDown.value = '#41506b';
+        }
+        
         switch (event.key) {
 			case "ArrowLeft":
 				direction.value =[-1, 0 ];
@@ -118,6 +135,22 @@
 
     const handleMouseDown = (event: MouseEvent) => {
         const canvasRect = gameCanvas.value?.getBoundingClientRect();
+
+        if (props.mode) {
+        color.value = '#ffd3b6';
+        colorOn.value = '#f1b963';
+        colorLeft.value = '#ffd3b6';
+        colorRight.value = '#ffd3b6';
+        colorUp.value = '#ffd3b6';
+        colorDown.value = '#ffd3b6';
+        } else {
+            color.value = '#41506b';
+            colorOn.value = '#4c9173';
+            colorLeft.value = '#41506b';
+            colorRight.value = '#41506b';
+            colorUp.value = '#41506b';
+            colorDown.value = '#41506b';
+        }
 
         if(gameCanvas.value && canvasRect) {
             const mouseX = event.clientX - canvasRect.left;
