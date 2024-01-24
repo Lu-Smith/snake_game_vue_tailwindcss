@@ -2,7 +2,7 @@
   <div class="flex justify-between items-center">
     <div>
       <h2 
-      class="font-semibold text-focusColor md:text-base text-sm"
+      class="font-semibold text-focusColor md:text-base text-sm pl-6"
       :class="mode ? 'text-slate-900' : 'text-textColor'" >Level {{ level }} - 
       <span v-if="level === 1" class="text-textColor font-bold">Snail Speed</span>
       <span v-if="level === 2" class="text-textColor font-bold">Swift Sloth</span>
@@ -16,7 +16,7 @@
       <span v-if="level === 10" class="text-focusColor font-bold">You are Flash</span>
     </h2>
     </div>
-    <div class="flex flex-row justify-center items-center gap-6">
+    <div class="flex flex-row justify-center items-center gap-6 pr-6">
       <button 
       @click="handleStartGame"
       v-if="!gameRunning"
